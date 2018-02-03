@@ -24,6 +24,7 @@ const router = new VueRouter({
 });
 router.beforeEach((to, from, next) => {
 	document.title = to.meta.title;
+	window.scrollTo(0,0);
 	next();
 })
 const app = new Vue({

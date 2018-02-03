@@ -41,20 +41,27 @@ export const workPage = Vue.component('workPage', {
 			}.bind(this));
 	},
 	template: `
-	<div class='wrapper work-wrapper'>
-		<h1 v-if='title'>{{title}}</h1>
-		<main class='wrapper-content'>
-			<carousel v-if='slideshow'
-				:perPage='1'
-				paginationActiveColor='#fab2d7'
-				paginationColor='#333' >
-				<slide v-for='(slide, index) in slideshow' :key='index'>
-					<img :src='slide.src + slide.fileType' :srcset='slideSrcset(slide)'>
-				</slide>
-			</carousel>
-			<content-block v-if='sections' v-for='(content, index) in sections' :key='index' :content='content'></content-block>
-			<router-link role='button' class='btn btn-pink' to='/'>Go home</router-link>
-		</main>
+	<div>
+		<div class="header-wrapper">
+			<h2><router-link to="/">Sam Haakman</router-link></h2>
+		</div>
+		<div class="internal-page-wrapper">
+			<div class='wrapper work-wrapper'>
+				<h1 v-if='title'>{{title}}</h1>
+				<main class='wrapper-content'>
+					<carousel v-if='slideshow'
+						:perPage='1'
+						paginationActiveColor='#fab2d7'
+						paginationColor='#333' >
+						<slide v-for='(slide, index) in slideshow' :key='index'>
+							<img :src='slide.src + slide.fileType' :srcset='slideSrcset(slide)'>
+						</slide>
+					</carousel>
+					<content-block v-if='sections' v-for='(content, index) in sections' :key='index' :content='content'></content-block>
+					<router-link role='button' class='btn btn-pink' to='/'>Go home</router-link>
+				</main>
+			</div>
+		</div>
 	</div>
 	`
 });
