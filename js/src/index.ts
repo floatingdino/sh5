@@ -14,7 +14,8 @@ const routes = [ // TODO: Generic template that loads template according to JSON
 	{ path: '/', component: homePage, meta:{title:'Sam Haakman'}},
 	{ path: '/privacy', component: page, meta:{title:'Privacy | Sam Haakman'}},
 	{ path: '/coyo', component: workPage, meta:{title:'COYO | Sam Haakman'}},
-	{ path: '/rf', component: workPage, meta:{title:'RUCKUS FIENDS | Sam Haakman'}}
+	{ path: '/rf', component: workPage, meta:{title:'RUCKUS FIENDS | Sam Haakman'}},
+	{ path: '*', component: page, meta: {title: 'Sam Haakman'}}
 ];
 
 const router = new VueRouter({

@@ -23,6 +23,16 @@ export const page = Vue.component('page', {
 			.then((resp) => resp.json())
 			.then(function(data){
 				Object.assign(this, data);
+			}.bind(this))
+			.catch(function(error){
+				console.warn("Something went wrong with navigation");
+				Object.assign(this, {
+					'title': 404,
+					'sections': [
+						{ 'content': 'Oh. a 404. You know what this means, right?<br>You\'ve gone somewhere you shouldn\'t have. I\'ve had a few revisions on this site, so maybe you followed an old link here.'},
+						{ 'content': 'Anyway, there\'s nothing here. You should go back to the homepage.'}
+					]
+				});
 			}.bind(this));
 	},
 	template: "\

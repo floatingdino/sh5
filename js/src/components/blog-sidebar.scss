@@ -28,11 +28,15 @@
 	height:0;
 	padding-bottom:(456 / 627) * 100%;;
 	width:100%;
-	background-color:rgba(white, .3);
+	background-color:rgba(white, .15);
 	border-radius:3px;
+	background-image:url('/img/spinner.svg');
+	background-position:center;
+	background-repeat:no-repeat;
+	background-size:40%;
 	&.loaded{
 		padding-bottom:0;
 		height:auto;
-		background-color:transparent;
+		background:none;
 	}
 }
