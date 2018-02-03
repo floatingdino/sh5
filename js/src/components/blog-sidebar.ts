@@ -46,7 +46,6 @@ function generateSrcset(src){
 	sizes.forEach(function(size){
 		srcset.push(src + "@" + size + filetype + " " + Math.round(baseSize * size) + "w");
 	});
-	console.log(srcset);
 	return srcset;
 }
 
