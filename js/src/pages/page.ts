@@ -1,15 +1,12 @@
 import Vue from "vue/dist/vue.esm.js"; // for some reason import Vue from vue doesn't include the runtime?
-
-import "./page.scss";
-
 import "whatwg-fetch";
+import "./page.scss";
 
 
 import {contentBlock} from '../components/content-block';
 
 export const page = Vue.component('page', {
 	props: {
-		'slug': String,
 		'cta': Object
 	},
 	data: function(){
@@ -21,7 +18,8 @@ export const page = Vue.component('page', {
 
 	},
 	created: function(){
-		fetch(`/js/data/${this.slug}.json`) //ES6 string interpolation
+		// TODO: plug into Keystone so that this can be managed through an interface, not just uploading plain JSON
+		fetch(`/js/data/${this.$route.path}.json`) //ES6 string interpolation
 			.then((resp) => resp.json())
 			.then(function(data){
 				this.heading = data.heading;
@@ -33,7 +31,7 @@ export const page = Vue.component('page', {
 			<h1 v-if='heading'>{{heading}}</h1>\
 			<main class='wrapper-content'>\
 				<content-block v-if='sections' v-for='(content, index) in sections' :key='index' :content='content'></content-block>\
-				<button v-if='cta' class='btn' v-on:click='cta.action'>{{cta.text}}</button>\
+				<router-link class='btn' to='/'>Take me home</router-link>\
 			</main>\
 		</div>\
 	"

@@ -1,8 +1,7 @@
-import './blog-sidebar.scss';
-
 import Vue from "vue/dist/vue.esm.js"; // for some reason `import Vue from vue` doesn't include the runtime?
-
 import "whatwg-fetch";
+
+import './blog-sidebar.scss';
 
 export const blogSidebar = Vue.component('blogSidebar', {
 	props: {
@@ -38,6 +37,7 @@ export const blogSidebar = Vue.component('blogSidebar', {
 			</li>\
 		</ul>\
 		</span>\
+		<p><router-link to='/privacy'>Read my super-exciting privacy policy</router-link></p>\
 	</aside>\
 	"
 });

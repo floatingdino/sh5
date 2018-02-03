@@ -1,5 +1,4 @@
 import Vue from "vue/dist/vue.esm.js"; // for some reason import Vue from vue doesn't include the runtime?
-
 import "whatwg-fetch";
 
 import {contentBlock} from '../components/content-block';
@@ -11,13 +10,7 @@ export const homePage = Vue.component('homePage', {
 		return({
 			"loaded": false,
 			"heading":"Sam Haakman", //Defaults until fetch can grab data
-			"sections": [
-				{
-					"title": null,
-					"content": null,
-					"list": null
-				}
-			]
+			"sections": []
 		})
 	},
 	components: {
