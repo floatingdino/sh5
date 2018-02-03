@@ -30,6 +30,14 @@ export const blogSidebar = Vue.component('blogSidebar', {
 	<aside class='blog-sidebar'>\
 		<h2 v-if='title'>{{title}}</h2>\
 		<blogPreview v-for='(blog, index) in blogs.slice(0, numberPreviews)' :key='index' :data='blog'/>\
+		<span v-if='blogs.length > 2'>\
+		<h2>Other cool sites I've built</h2>\
+		<ul class='inline'>\
+			<li v-for='(blog, index) in blogs.slice(2)' :key='index'>\
+				<a :href='blog.url' target='_blank' rel='nofollow noopener'>{{blog.title}}</a>\
+			</li>\
+		</ul>\
+		</span>\
 	</aside>\
 	"
 });

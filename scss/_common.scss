@@ -1,5 +1,3 @@
-img.lazy{}
-img.lazy.loaded{}
 img{
 	&.lazy{
 		opacity:0;
@@ -10,4 +8,9 @@ img{
 			visibility:visible
 		}
 	}
+}
+img, .wrapper{max-width:100%;height:auto;max-height:auto}
+button{
+	color:inherit;
+	line-height:normal;
 }

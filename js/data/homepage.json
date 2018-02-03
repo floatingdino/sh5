@@ -1,5 +1,6 @@
 {
 	"heading": "Sam Haakman - Super, Developer",
+	"template": "homePage",
 	"sections":[
 		{
 			"title": "What I love",
@@ -22,7 +23,7 @@
 			"list": [
 				"Superfast, semantically sparkling HTML",
 				"Ridiculous Sass / CSS3",
-				"React & Vue",
+				"Snappy React & Vue",
 				"Bootstrap & Foundation",
 				"Intelligent solutions in PHP / Laravel Blade",
 				"Vanilla Javascript wizardry",

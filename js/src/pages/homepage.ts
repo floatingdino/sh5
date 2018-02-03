@@ -1,26 +1,8 @@
-import "./homepage.scss";
-
-
-
 import Vue from "vue/dist/vue.esm.js"; // for some reason import Vue from vue doesn't include the runtime?
 
 import "whatwg-fetch";
 
-Vue.component('content-block', {
-	props: {
-		'content': Object
-	},
-	template: "\
-		<span>\
-			<h2 v-if='content.title'>{{content.title}}</h2>\
-				<p v-if='content.link'><a :href='content.link' v-html='content.content'></a></p>\
-				<p v-if='!content.link' v-html='content.content'></p>\
-			<ul v-if='content.list'>\
-				<li v-for='listItem in content.list'>{{listItem}}</li>\
-			</ul>\
-		</span>\
-	"
-});
+import {contentBlock} from '../components/content-block';
 
 import {blogSidebar} from '../components/blog-sidebar';
 
@@ -39,7 +21,8 @@ export const homePage = Vue.component('homePage', {
 		})
 	},
 	components: {
-		blogSidebar: blogSidebar
+		blogSidebar: blogSidebar,
+		contentBlock: contentBlock
 	},
 	created: function(){
 		fetch("/js/data/homepage.json") // Eventually this will be plugged into Keystone, but for now it's just static JSON
