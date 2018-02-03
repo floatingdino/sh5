@@ -40,21 +40,21 @@ export const workPage = Vue.component('workPage', {
 				Object.assign(this, data);
 			}.bind(this));
 	},
-	template: "\
-	<div class='wrapper work-wrapper'>\
-		<h1 v-if='title'>{{title}}</h1>\
-		<main class='wrapper-content'>\
-			<carousel v-if='slideshow'\
-				:perPage='1'\
-				paginationActiveColor='#fab2d7'\
-				paginationColor='#333' >\
-				<slide v-for='(slide, index) in slideshow' :key='index'>\
-					<img :src='slide.src + slide.fileType' :srcset='slideSrcset(slide)'>\
-				</slide>\
-			</carousel>\
-			<content-block v-if='sections' v-for='(content, index) in sections' :key='index' :content='content'></content-block>\
-			<router-link role='button' class='btn btn-pink' to='/'>Go home</router-link>\
-		</main>\
-	</div>\
-	"
+	template: `
+	<div class='wrapper work-wrapper'>
+		<h1 v-if='title'>{{title}}</h1>
+		<main class='wrapper-content'>
+			<carousel v-if='slideshow'
+				:perPage='1'
+				paginationActiveColor='#fab2d7'
+				paginationColor='#333' >
+				<slide v-for='(slide, index) in slideshow' :key='index'>
+					<img :src='slide.src + slide.fileType' :srcset='slideSrcset(slide)'>
+				</slide>
+			</carousel>
+			<content-block v-if='sections' v-for='(content, index) in sections' :key='index' :content='content'></content-block>
+			<router-link role='button' class='btn btn-pink' to='/'>Go home</router-link>
+		</main>
+	</div>
+	`
 });

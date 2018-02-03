@@ -25,7 +25,7 @@ export const page = Vue.component('page', {
 				Object.assign(this, data);
 			}.bind(this))
 			.catch(function(error){
-				console.warn("Something went wrong with navigation");
+				console.warn("Something went wrong with navigation", this);
 				Object.assign(this, {
 					'title': 404,
 					'sections': [
@@ -35,13 +35,13 @@ export const page = Vue.component('page', {
 				});
 			}.bind(this));
 	},
-	template: "\
-		<div class='wrapper narrow-wrapper'>\
-			<h1 v-if='title'>{{title}}</h1>\
-			<main class='wrapper-content'>\
-				<content-block v-if='sections' v-for='(content, index) in sections' :key='index' :content='content'></content-block>\
-				<router-link class='btn' to='/'>Take me home</router-link>\
-			</main>\
-		</div>\
-	"
+	template: `
+		<div class='wrapper narrow-wrapper'>
+			<h1 v-if='title'>{{title}}</h1>
+			<main class='wrapper-content'>
+				<content-block v-if='sections' v-for='(content, index) in sections' :key='index' :content='content'></content-block>
+				<router-link class='btn' to='/'>Take me home</router-link>
+			</main>
+		</div>
+	`
 });

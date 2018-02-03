@@ -24,13 +24,13 @@ export const homePage = Vue.component('homePage', {
 			Object.assign(this, data);
 		}.bind(this));
 	},
-	template: "\
-		<div class='wrapper'>\
-			<h1 v-if='title'>{{title}}</h1>\
-			<main class='wrapper-content'>\
-				<content-block v-if='sections' v-for='(content, index) in sections' :key='index' :content='content'></content-block>\
-			</main>\
-			<blogSidebar title='Work'/>\
-		</div>\
-	"
+	template: `
+		<div class='wrapper'>
+			<h1 v-if='title'>{{title}}</h1>
+			<main class='wrapper-content'>
+				<content-block v-if='sections' v-for='(content, index) in sections' :key='index' :content='content'></content-block>
+			</main>
+			<blogSidebar title='Work'/>
+		</div>
+	`
 });

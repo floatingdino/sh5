@@ -24,21 +24,21 @@ export const blogSidebar = Vue.component('blogSidebar', {
 				Object.assign(this, data);
 			}.bind(this))
 	},
-	template: "\
-	<aside class='blog-sidebar'>\
-		<h2 v-if='title'>{{title}}</h2>\
-		<blogPreview v-for='(blog, index) in blogs.slice(0, numberPreviews)' :key='index' :data='blog'/>\
-		<span v-if='blogs.length > 2'>\
-		<h2>Other cool sites I've built</h2>\
-		<ul class='inline'>\
-			<li v-for='(blog, index) in blogs.slice(2)' :key='index'>\
-				<a :href='blog.url' target='_blank' rel='nofollow noopener'>{{blog.title}}</a>\
-			</li>\
-		</ul>\
-		</span>\
-		<p><router-link to='/privacy'>Read my super-exciting privacy policy</router-link></p>\
-	</aside>\
-	"
+	template: `
+	<aside class='blog-sidebar'>
+		<h2 v-if='title'>{{title}}</h2>
+		<blogPreview v-for='(blog, index) in blogs.slice(0, numberPreviews)' :key='index' :data='blog'/>
+		<span v-if='blogs.length > 2'>
+		<h2>Other cool sites I've built</h2>
+		<ul class='inline'>
+			<li v-for='(blog, index) in blogs.slice(2)' :key='index'>
+				<a :href='blog.url' target='_blank' rel='nofollow noopener'>{{blog.title}}</a>
+			</li>
+		</ul>
+		</span>
+		<p><router-link to='/privacy'>Read my super-exciting privacy policy</router-link></p>
+	</aside>
+	`
 });
 
 function generateSrcset(src){
@@ -76,11 +76,11 @@ Vue.component('blogPreview', {
 			this.loaded = true;
 		}
 	},
-	template: "\
-		<article>\
-			<img :src='data.preview_image + \".png\"'\ :srcset='previewSrcset' v-on:load='load()' :class='{\"lazy-img-preview\":true, loaded : this.loaded}'>\
-			<h3>{{data.title}}</h3>\
-			<router-link role='button' class='btn' :to='data.slug'>Check it out</router-link>\
-		</article>\
-	"
+	template: `
+		<article>
+			<img :src='data.preview_image + ".png"' :srcset='previewSrcset' v-on:load='load()' :class='{"lazy-img-preview":true, loaded : this.loaded}'>
+			<h3>{{data.title}}</h3>
+			<router-link role='button' class='btn' :to='data.slug'>Check it out</router-link>
+		</article>
+	`
 });
