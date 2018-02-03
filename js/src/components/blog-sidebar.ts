@@ -12,7 +12,7 @@ export const blogSidebar = Vue.component('blogSidebar', {
 		}
 	},
 	data: function(){
-		return ({
+		return ({ // Defaults to empty and then fetches data in created
 			loaded: false,
 			blogs: []
 		});
@@ -21,8 +21,7 @@ export const blogSidebar = Vue.component('blogSidebar', {
 		fetch('/js/data/blogs.json')
 			.then((resp) => resp.json())
 			.then(function(data){
-				this.blogs = data.blogs;
-				this.loaded = true;
+				Object.assign(this, data);
 			}.bind(this))
 	},
 	template: "\
@@ -61,16 +60,27 @@ Vue.component('blogPreview', {
 	props: {
 		data: Object
 	},
+	data: function(){
+		return {loaded: this.loaded}
+	},
+	created: function(){
+		this.loaded = false;
+	},
 	computed: {
 		previewSrcset: function(){
 			return generateSrcset(this.data.preview_image);
 		}
 	},
+	methods: {
+		load: function(){
+			this.loaded = true;
+		}
+	},
 	template: "\
 		<article>\
-			<img :src='data.preview_image + \".png\"'\ :srcset='previewSrcset'>\
+			<img :src='data.preview_image + \".png\"'\ :srcset='previewSrcset' v-on:load='load()' :class='{\"lazy-img-preview\":true, loaded : this.loaded}'>\
 			<h3>{{data.title}}</h3>\
-			<a role='button' class='btn'>Check it out</a>\
+			<router-link role='button' class='btn' :to='data.slug'>Check it out</router-link>\
 		</article>\
 	"
 });

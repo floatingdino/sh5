@@ -24,3 +24,15 @@
 		padding:0 15px 30px;
 	}
 }
+.lazy-img-preview{
+	height:0;
+	padding-bottom:(456 / 627) * 100%;;
+	width:100%;
+	background-color:rgba(white, .3);
+	border-radius:3px;
+	&.loaded{
+		padding-bottom:0;
+		height:auto;
+		background-color:transparent;
+	}
+}

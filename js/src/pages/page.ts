@@ -11,7 +11,7 @@ export const page = Vue.component('page', {
 	},
 	data: function(){
 		return ({
-			'heading': '',
+			'title': '',
 			'loaded': false,
 			'sections':[]
 		});
@@ -22,13 +22,12 @@ export const page = Vue.component('page', {
 		fetch(`/js/data/${this.$route.path}.json`) //ES6 string interpolation
 			.then((resp) => resp.json())
 			.then(function(data){
-				this.heading = data.heading;
-				this.sections = data.sections;
+				Object.assign(this, data);
 			}.bind(this));
 	},
 	template: "\
 		<div class='wrapper narrow-wrapper'>\
-			<h1 v-if='heading'>{{heading}}</h1>\
+			<h1 v-if='title'>{{title}}</h1>\
 			<main class='wrapper-content'>\
 				<content-block v-if='sections' v-for='(content, index) in sections' :key='index' :content='content'></content-block>\
 				<router-link class='btn' to='/'>Take me home</router-link>\

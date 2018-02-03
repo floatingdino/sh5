@@ -1,0 +1,17 @@
+.work-wrapper{
+	background-color:white;
+	width:1200px;
+	color:#fab2d7;
+	padding:40px;
+}
+.VueCarousel{
+	&-slide{
+		height:600px;
+		overflow:auto;
+	}
+
+	&-pagination{
+		position:absolute;
+		bottom:0;
+	}
+}
