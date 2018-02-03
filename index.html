@@ -1,0 +1,61 @@
+<!DOCTYPE HTML>
+<html prefix="og: http://ogp.me/ns#" lang="en">
+<head>
+  <link rel="icon" href="icon.png">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Sam Haakman is a Brisbane-based front-end web developer. Skills include React, Laravel, Sass, and being devilishly handsome.">
+
+  <script type="application/ld+json">
+    {
+      "@context": "http://schema.org",
+        "@type": "Person",
+        "givenName": "Sam",
+        "familyName": "Haakman",
+        "jobTitle": "Front-End Developer",
+        "email": "mailto:sam@samhaakman.com",
+      "description": "Sam Haakman is a Brisbane-based front-end web developer. Skills include React, Laravel, Sass, and being devilishly handsome.",
+      "url": "https://samhaakman.com",
+      "sameAs": [
+        "http://floatingdino.tumblr.com",
+        "https://twitter.com/thefloatingdino",
+        "http://floatingdino.tumblr.com",
+        "https://trakt.tv/users/floatingdino"
+      ],
+      "image":{
+        "@type": "ImageObject",
+        "url": "https://samhaakman.com/pvw.png",
+        "height": 768,
+        "width": 1024
+      }
+    }
+  </script>
+  <meta property="og:title" content="Sam Haakman builds websites">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://samhaakman.com">
+  <meta property="og:image" content="https://samhaakman.com/pvw.png">
+  <style>
+  html, body{margin:0;padding:0;font-size:18px;}
+  *{box-sizing: border-box;}
+  body{
+    background: #fab2d7;
+    background: linear-gradient(20deg, rgba(152,214,229,0.8) 0%,rgba(250,178,215,0) 60%),
+                linear-gradient(150deg,  #fab2d7 0%,#d1c7f9 100%);
+    background-attachment:fixed;
+    min-height:100vh;
+    color:white;
+    font-family:'nimbus-sans', Arial, sans-serif;
+    letter-spacing:0.07em;
+    line-height:170%; /*Ratios are nicer, but don't work with CSS calcs */
+    word-spacing:0.05em;
+  }
+  </style>
+</head>
+<body>
+  <!-- Vue is rendered here -->
+  <div id="app">
+  </div>
+  <link rel="stylesheet" href="https://use.typekit.net/kiw7kqt.css">
+  <script src="js/dist/bundle.js" async></script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+h1{
+	 text-transform:uppercase;
+	 font-size:2em;
+	 padding:0 15px;
+	 line-height:1.3;
+}
+
+p{
+	margin-bottom:1.5em
+}
+
+a{
+	color:inherit;
+	text-decoration:none;
+	border-bottom:2px dotted currentColor;
+	&:hover{
+		border-bottom-style:solid;
+	}
+}
+
+ul.inline{
+	padding:0
+}
+.inline li{
+	display:inline-block;
+	margin-right:10px;
+	margin-bottom:20px;
+}
+@media screen and (max-width:1520px){
+	body{
+		 /*This is a sweet little calc based on a Typekit blog that compresses text on small screens to improve the reading experience. Neat, right?*/
+		 letter-spacing:calc(0.03em + (0.05 - 0.03) * ((100vw - 11.1111em)/ (42.2 - 11.1111)));
+		 line-height:calc(130% + (1.7 - 1.6) * ((100vw - 11.1111em)/ (42.2 - 11.1111)));
+	}
+
+}
