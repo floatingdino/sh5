@@ -17,5 +17,5 @@ const app = new Vue({
 	components: {
 		homepage: homePage
 	},
-	template: "<component v-bind:is='currentView'></component>"
+	template: "<component :is='currentView'/>"
 });

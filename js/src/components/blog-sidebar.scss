@@ -1,0 +1,26 @@
+.blog-sidebar{
+	float:right;
+	width:40%;
+	padding:0 30px 60px;
+	&-item{
+		img{
+			width:548px; display:block
+		}
+		+ h2{
+			margin-top:0;
+		}
+	}
+}
+@supports (display:flex){
+	.blog-sidebar{
+		flex:3 1 548px;
+		padding:0 30px 60px;
+	}
+}
+@media (max-width:760px){
+	.blog-sidebar{
+		width:100%;
+		float:none;
+		padding:0 15px 30px;
+	}
+}

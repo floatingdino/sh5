@@ -1,19 +1,13 @@
 img, .wrapper{max-width:100%;height:auto;max-height:auto}
-article img{width:548px; display:block}
 
-article + h2{margin-top:0}
 
 /*Fallback for browsers without flex support*/
-.broken-top{
+.wrapper-content{
 	width:50%;
 	padding:0 15px 60px;
 	float:left;
 }
-aside{
-	float:right;
-	width:40%;
-	padding:0 30px 60px;
-}
+
 .wrapper{
 	display:block;
 	width:1520px;
@@ -28,7 +22,7 @@ aside{
 }
 
 @supports (display:flex){
-	.wrapper, .broken-top{float:none;width:auto}
+	.wrapper, .wrapper-content{float:none;width:auto}
 	.wrapper{
 		display:flex;
 		flex-flow: row wrap;
@@ -39,17 +33,12 @@ aside{
 		flex:5 1 600px;
 		padding:0 15px 60px;
 	}
-	aside{
-		flex:3 1 548px;
-		padding:0 30px 60px;
-	}
+
 	h1{
 		flex:100% 0;
 	}
 
 }
 @media screen and (max-width:760px){
-	.broken-top{width:100%;float:none;order:2}
-	aside{width:100%;float:none;padding:0 15px 30px}
-
+	.wrapper-content{width:100%;float:none;order:2}
 }
