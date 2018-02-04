@@ -1,6 +1,7 @@
+@import '../../../scss/master';
 .blog-sidebar{
 	float:right;
-	width:40%;
+	width:35%;
 	padding:0 30px 60px;
 	&-item{
 		img{
@@ -13,8 +14,11 @@
 }
 @supports (display:flex){
 	.blog-sidebar{
-		flex:3 1 548px;
+		flex:1 1 350px;
 		padding:0 30px 60px;
+		@include breakpoint(950){
+			padding-left:80px;
+		}
 	}
 }
 @media (max-width:760px){
@@ -30,7 +34,7 @@
 	width:100%;
 	background-color:rgba(white, .15);
 	border-radius:3px;
-	background-image:url('/img/spinner.svg');
+	background-image:url('/img/thick-spinner.svg');
 	background-position:center;
 	background-repeat:no-repeat;
 	background-size:40%;

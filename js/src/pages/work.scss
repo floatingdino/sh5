@@ -9,6 +9,7 @@
 .internal-page-wrapper{
 	background-color:white;
 	color:black;
+	padding-top:1px;
 	::selection{
 		background-color:rgba(#fab2d7, (254 / 255));
 		opacity:1;
@@ -16,6 +17,7 @@
 	}
 	h1{
 		font-size:1.6em;
+		margin-bottom:1em;
 	}
 }
 .VueCarousel{

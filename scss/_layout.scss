@@ -1,6 +1,6 @@
 /*Fallback for browsers without flex support*/
 .wrapper-content{
-	width:50%;
+	width:60%;
 	padding:0 15px 60px;
 	float:left;
 	> :last-child{
@@ -10,7 +10,7 @@
 
 .wrapper{
 	display:block;
-	width:1520px;
+	width:1400px;
 	margin:10vh auto 10vh;
 	&:after, &:before{
 	 	display:table;
@@ -25,12 +25,15 @@
 	.wrapper, .wrapper-content{float:none;width:auto}
 	.wrapper{
 		display:flex;
+		width:1400px;
 		flex-flow: row wrap;
 		justify-content: space-between;
-		width:1520px;
+		&:after, &:before{
+		 	display:none;
+		}
 	}
 	.wrapper-content{
-		flex:5 1 600px;
+		flex:3 1 600px;
 		padding:0 15px 60px;
 	}
 

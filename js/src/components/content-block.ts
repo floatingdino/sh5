@@ -5,13 +5,13 @@ export const contentBlock = Vue.component('content-block', {
 		'content': Object
 	},
 	template: `
-		<span>
+		<div>
 			<h2 v-if='content.title'>{{content.title}}</h2>
 				<p v-if='content.link'><a :href='content.link' v-html='content.content'></a></p>
 				<p v-if='!content.link' v-html='content.content'></p>
 			<ul v-if='content.list'>
 				<li v-for='listItem in content.list'>{{listItem}}</li>
 			</ul>
-		</span>
+		</div>
 	`
 });

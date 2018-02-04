@@ -8,6 +8,9 @@ import "./work.scss";
 import {contentBlock} from '../components/content-block';
 
 export const workPage = Vue.component('workPage', {
+	props: {
+		page: Object
+	},
 	data: function(){
 		return({
 			loaded: false,
@@ -47,17 +50,17 @@ export const workPage = Vue.component('workPage', {
 		</div>
 		<div class="internal-page-wrapper">
 			<div class='wrapper work-wrapper'>
-				<h1 v-if='title'>{{title}}</h1>
+				<h1 v-if='page.title'>{{page.title}}</h1>
 				<main class='wrapper-content'>
-					<carousel v-if='slideshow'
+					<carousel v-if='page.slideshow'
 						:perPage='1'
 						paginationActiveColor='#fab2d7'
 						paginationColor='#333' >
-						<slide v-for='(slide, index) in slideshow' :key='index'>
+						<slide v-for='(slide, index) in page.slideshow' :key='index'>
 							<img :src='slide.src + slide.fileType' :srcset='slideSrcset(slide)'>
 						</slide>
 					</carousel>
-					<content-block v-if='sections' v-for='(content, index) in sections' :key='index' :content='content'></content-block>
+					<content-block v-if='page.sections' v-for='(content, index) in page.sections' :key='index' :content='content'></content-block>
 					<router-link role='button' class='btn btn-pink' to='/'>Go home</router-link>
 				</main>
 			</div>

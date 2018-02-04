@@ -1,6 +1,7 @@
 {
 	"title": "Sam Haakman - Super, Developer",
 	"template": "homePage",
+	"slug": "/",
 	"sections":[
 		{
 			"title": "What I love",
@@ -13,7 +14,7 @@
 			"content": "That's me."
 		},
 		{
-			"content": "I build super-fast sites without resorting to 'fake fixes'. Sites that just work - and they look great no matter how you look at them.<br>I love seeing a spot in a design to add some JUICE and then sitting down with a designer to make it happen. I'm collaborative, I'm flexible, I'm whatever spicy marketing term you want to apply to me."
+			"content": "I build super-fast sites without resorting to 'fake fixes'. Sites that just work - and they look great, no matter what device you use.<br>I love seeing a spot in a design to add some JUICE and then sitting down with a designer to make it happen. I'm collaborative, I'm flexible, I'm whatever spicy marketing term you want to apply to me."
 		},
 		{
 			"content": "Designs entrusted to me are in good hands."
