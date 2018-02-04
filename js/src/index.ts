@@ -34,3 +34,5 @@ router.beforeEach((to, from, next) => {
 const app = new Vue({
 	router
 }).$mount('#app');
+
+import 'autotrack';

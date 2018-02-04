@@ -48,6 +48,7 @@ body{
   background-attachment:fixed;
   color:white;
   font-family:'nimbus-sans', Arial, sans-serif;
+  font-display:fallback;
   letter-spacing:0.07em;
   line-height:170%; /*Ratios are nicer, but don't work with CSS calcs */
   word-spacing:0.05em;
@@ -60,5 +61,15 @@ body{
   </div>
   <link rel="stylesheet" href="https://use.typekit.net/kiw7kqt.css">
   <script src="js/dist/bundle.js" async></script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-64114192-3', 'auto');
+  ga('require', 'outboundLinkTracker');
+  ga('require', 'urlChangeTracker');
+  ga('send', 'pageview');
+</script>
 </body>
 </html>

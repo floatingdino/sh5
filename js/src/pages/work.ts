@@ -1,6 +1,5 @@
 import Vue from "vue/dist/vue.esm.js"; // for some reason import Vue from vue doesn't include the runtime?
 import { Carousel, Slide } from 'vue-carousel';
-import "whatwg-fetch";
 
 import "./work.scss";
 
@@ -10,14 +9,6 @@ import {contentBlock} from '../components/content-block';
 export const workPage = Vue.component('workPage', {
 	props: {
 		page: Object
-	},
-	data: function(){
-		return({
-			loaded: false,
-			title: false,
-			slideshow: false,
-			sections: false
-		});
 	},
 	components: {
 		contentBlock: contentBlock,
@@ -34,14 +25,6 @@ export const workPage = Vue.component('workPage', {
 			});
 			return srcset;
 		}
-	},
-	created: function(){
-		// TODO: plug into Keystone so that this can be managed through an interface, not just uploading plain JSON
-		fetch(`/js/data/${this.$route.path}.json`) //ES6 string interpolation
-			.then((resp) => resp.json())
-			.then(function(data){
-				Object.assign(this, data);
-			}.bind(this));
 	},
 	template: `
 	<div>

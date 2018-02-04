@@ -1,10 +1,15 @@
 .v-loader{
 	&-enter, &-leave-to{
 		opacity:0;
-		transform:translateY(50px);
+	}
+	&-enter{
+		transform:translateX(100px)
+	}
+	&-leave-to{
+		transform:translateX(-100px);
 	}
 	&-enter-active {
-		transition: all .2s .2s ease-out;
+		transition: all .2s ease-out;
 	}
 	&-leave-active{
 		transition: all .2s ease-out;

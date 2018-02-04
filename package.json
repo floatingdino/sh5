@@ -30,6 +30,7 @@
     "webpack-dev-server": "^2.11.1"
   },
   "dependencies": {
+    "autotrack": "^2.4.1",
     "css-loader": "^0.28.9",
     "style-loader": "^0.20.1",
     "vue": "^2.5.13",

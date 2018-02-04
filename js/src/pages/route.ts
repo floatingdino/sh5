@@ -24,9 +24,9 @@ export const route = Vue.component('route', {
 			'template': '',
 			'loading': true,
 			'dataPath': function(){
-				return `/js/data/${this.$route.path == "/" ? 'homepage' : this.$route.path}.json`;
+				return `/js/data/${this.$route.path == "/" ? 'homepage' : this.$route.path.slice(1)}.json`;
 			},
-			'slug': this.$route.path,
+			'slug': this.$route.path.slice(1),
 			'page': {}
 		});
 
@@ -58,7 +58,7 @@ export const route = Vue.component('route', {
 		}
 	},
 	beforeUpdate:function(){
-		if(this.slug != this.$route.path && `/${this.slug}` != this.$route.path){
+		if(this.slug != this.$route.path && `/${this.slug}` != this.$route.path && !this.loading){
 			this.updatePageData();
 		}
 	},
