@@ -22,4 +22,4 @@ new Vue({
 	router
 }).$mount('#app');
 
-// import 'autotrack';
+import {outboundLinkTracker, urlChangeTracker} from 'autotrack';
