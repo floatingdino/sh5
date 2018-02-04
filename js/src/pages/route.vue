@@ -46,7 +46,10 @@ export default {
 				}.bind(this))
 				.catch(function(error){
 					console.warn("Something went wrong with navigation", this);
-					Object.assign(this, {
+					this.loading = false;
+					this.slug = this.$route.path;
+					this.template = page;
+					Object.assign(this.page, {
 						'title': 404,
 						'template': 'page',
 						'sections': [

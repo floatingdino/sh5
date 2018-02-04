@@ -21,5 +21,3 @@ router.beforeEach((to, from, next) => {
 new Vue({
 	router
 }).$mount('#app');
-
-import {outboundLinkTracker, urlChangeTracker} from 'autotrack';
