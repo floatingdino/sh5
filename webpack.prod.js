@@ -39,22 +39,28 @@ module.exports = {
 						}
 					}
 				]
-			}
+			},
+			// {
+			// 	test: /scss$/,
+			// 	use: ['style-loader', 'css-loader', 'sass-loader']
+			// }
 		]
 	},
 	plugins: [
 		new ExtractTextPlugin("./css/style.css"),
-		// new uglify({
-		// 	extractComments: true,
-		// 	parallel: true,
-		// 	cache: true
-		// }),
-		new BundleAnalyzerPlugin(),
-		// new webpack.DefinePlugin({
-		// 	"process.env": {
-		// 		NODE_ENV: JSON.stringify("production")
-		// 	}
-		// })
+		new uglify({
+			extractComments: true,
+			parallel: true,
+			cache: true
+		}),
+		new BundleAnalyzerPlugin({
+			analyzerMode: "static"
+		}),
+		new webpack.DefinePlugin({
+			"process.env": {
+				NODE_ENV: JSON.stringify("production")
+			}
+		})
 	],
 	resolve: {
 		extensions: ['.ts', '.tsx', '.js', '.json', '.vue']

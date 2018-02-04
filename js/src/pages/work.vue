@@ -1,32 +1,4 @@
-import Vue from "vue/dist/vue.esm.js"; // for some reason import Vue from vue doesn't include the runtime?
-import { Carousel, Slide } from 'vue-carousel';
-
-import "./work.scss";
-
-
-import {contentBlock} from '../components/content-block';
-
-export const workPage = Vue.component('workPage', {
-	props: {
-		page: Object
-	},
-	components: {
-		contentBlock: contentBlock,
-		Carousel,
-		Slide
-	},
-	methods: {
-		slideSrcset: function(img){
-			let srcset = [];
-			srcset.push(img.src + img.fileType + " " + img.baseSize + "w");
-
-			img.srcset.forEach(function(size){
-				srcset.push(img.src + "@" + size + img.fileType + " " + Math.round(img.baseSize * size) + "w");
-			});
-			return srcset;
-		}
-	},
-	template: `
+<template>
 	<div>
 		<div class="header-wrapper">
 			<h2><router-link to="/">Sam Haakman</router-link></h2>
@@ -49,5 +21,32 @@ export const workPage = Vue.component('workPage', {
 			</div>
 		</div>
 	</div>
-	`
-});
+</template>
+<script>
+import { Carousel, Slide } from 'vue-carousel';
+import contentBlock from '../components/content-block';
+export default {
+	props: {
+		page: Object
+	},
+	components: {
+		contentBlock: contentBlock,
+		Carousel,
+		Slide
+	},
+	methods: {
+		slideSrcset: function(img){
+			let srcset = [];
+			srcset.push(img.src + img.fileType + " " + img.baseSize + "w");
+
+			img.srcset.forEach(function(size){
+				srcset.push(img.src + "@" + size + img.fileType + " " + Math.round(img.baseSize * size) + "w");
+			});
+			return srcset;
+		}
+	}
+};
+</script>
+<style lang="scss">
+@import "work";
+</style>

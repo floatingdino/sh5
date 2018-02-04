@@ -14,10 +14,10 @@
 }
 @supports (display:flex){
 	.blog-sidebar{
-		flex:1 1 350px;
+		flex:2 1 350px;
 		padding:0 30px 60px;
 		@include breakpoint(950){
-			padding-left:80px;
+			padding-left:100px;
 		}
 	}
 }

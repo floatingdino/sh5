@@ -3,6 +3,7 @@
 <head>
 <link rel="icon" href="icon.png">
 <link rel="preload" as="script" href="/js/dist/bundle.js">
+<link rel="preload" as="style" href="/css/style.css">
 <link rel="preload" as="style" href="https://use.typekit.net/kiw7kqt.css">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -52,6 +53,8 @@ body{
   letter-spacing:0.07em;
   line-height:170%; /*Ratios are nicer, but don't work with CSS calcs */
   word-spacing:0.05em;
+  width:100%;
+  overflow-x:hidden;
 }
 </style>
 </head>
@@ -59,6 +62,7 @@ body{
   <div id="app">
     <router-view></router-view>
   </div>
+  <link rel="stylesheet" href="/css/style.css">
   <link rel="stylesheet" href="https://use.typekit.net/kiw7kqt.css">
   <script src="js/dist/bundle.js" async></script>
 <script>

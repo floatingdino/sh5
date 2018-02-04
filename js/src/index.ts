@@ -1,24 +1,11 @@
-declare interface ObjectConstructor {
-    assign(...objects: Object[]): Object;
-}
-
-import '../../scss/style.scss';
-
-import Vue from "vue/dist/vue.esm.js"; // for some reason import Vue from vue doesn't include the runtime?
+import Vue from "vue/dist/vue.min.js";
 import VueRouter from "vue-router";
 Vue.use(VueRouter);
 
 // VIEWS
-import {route} from "./pages/route";
-// import {page} from "./pages/page";
-// // import "./pages/blog.ts"; //TODO: Add blog after Keystone
-// import {workPage} from "./pages/work";
+import route from "./pages/route";
 
-const routes = [ // TODO: Generic template that loads template according to JSON response
-	// { path: '/', component: homePage, meta:{title:'Sam Haakman'}},
-	// { path: '/privacy', component: page, meta:{title:'Privacy | Sam Haakman'}},
-	// { path: '/coyo', component: workPage, meta:{title:'COYO | Sam Haakman'}},
-	// { path: '/rf', component: workPage, meta:{title:'RUCKUS FIENDS | Sam Haakman'}},
+const routes = [
 	{ path: '*', component: route, meta: {title: 'Sam Haakman'}}
 ];
 
@@ -31,8 +18,8 @@ router.beforeEach((to, from, next) => {
 	window.scrollTo(0,0);
 	next();
 })
-const app = new Vue({
+new Vue({
 	router
 }).$mount('#app');
 
-import 'autotrack';
+// import 'autotrack';

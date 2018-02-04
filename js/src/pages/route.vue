@@ -1,16 +1,16 @@
-import Vue from "vue/dist/vue.esm.js"; // for some reason import Vue from vue doesn't include the runtime?
-import {homePage} from "./homepage";
-import {page} from "./page";
-// import "./pages/blog.ts"; //TODO: Add blog after Keystone
-import {workPage} from "./work";
+<template>
+	<transition name="v-loader" mode="out-in">
+		<component v-if="!loading" :is="template" :page="page" />
+		<img v-if="loading" src="/img/thick-spinner.svg" class="route-spinner" title="Loading..." alt="Loading, please wait">
+	</transition>
+</template>
+<script>
+import homePage from "./homepage";
+import page from "./page";
+import workPage from "./work";
 
 import "whatwg-fetch";
-
-
-import "./route.scss";
-
-
-export const route = Vue.component('route', {
+export default {
 	props: {
 		'cta': Object,
 	},
@@ -42,11 +42,11 @@ export const route = Vue.component('route', {
 					this.template = data.template;
 					this.slug = data.slug;
 					this.loading = false;
-					(<any>Object).assign(this.page, data);
+					Object.assign(this.page, data);
 				}.bind(this))
 				.catch(function(error){
 					console.warn("Something went wrong with navigation", this);
-					(<any>Object).assign(this, {
+					Object.assign(this, {
 						'title': 404,
 						'template': 'page',
 						'sections': [
@@ -64,11 +64,10 @@ export const route = Vue.component('route', {
 	},
 	created: function(){
 		this.updatePageData();
-	},
-	template: `
-		<transition name="v-loader" mode="out-in">
-			<component v-if="!loading" :is="template" :page="page" />
-			<img v-if="loading" src="/img/thick-spinner.svg" class="route-spinner" title="Loading..." alt="Loading, please wait">
-		</transition>
-	`
-});
+	}
+}
+</script>
+<style lang="scss">
+@import '../../../scss/style';
+@import "route";
+</style>
