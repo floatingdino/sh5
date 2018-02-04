@@ -1,0 +1,28 @@
+$sm:768px;
+$md:992px;
+$lg:1200px;
+$breakpoints: ('small':(min-width:640px),'medium':(min-width:1024px),'large':(min-width:1200px), 'md':(min-width:$md), 'sm':(min-width:$sm), 'lg':(min-width:$lg));
+
+@mixin breakpoint($width){
+// FOUNDATION STYLE BREAKPOINT MIXIN BY SAM
+// INPUT BOOTSTRAP OR FOUNDATION NAMED BREAKPOINT OR NUMBER FOR PIXEL VALUE MIN WIDTH
+   $type: type-of($width);
+   @if $type == string{
+      @if map-has-key($breakpoints, $width){
+         @media #{inspect(map-get($breakpoints, $width))}{
+            @content;
+         }
+      }
+      @else{
+         @warn "Couldn't find #{$width} in breakpoints, give it a squizz.";
+      }
+   }@else if $type == number{ // PX ONLY, NO SPECIFIED VALUES
+      @media (min-width: $width + "px"){
+         @content;
+      }
+  }@else if $width == null{
+    @content;
+  }@else{
+      @warn "Problem with breakpoint mixin, you tried #{$width}";
+   }
+}
