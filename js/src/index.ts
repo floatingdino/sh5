@@ -1,5 +1,6 @@
-import Vue from "vue/dist/vue.min.js";
+import Vue from "vue";
 import VueRouter from "vue-router";
+import App from "./App";
 Vue.use(VueRouter);
 
 // VIEWS
@@ -19,5 +20,7 @@ router.beforeEach((to, from, next) => {
 	next();
 })
 new Vue({
-	router
-}).$mount('#app');
+	el: "#app",
+	router,
+	render: (h) => h(App)
+})
