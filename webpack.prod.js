@@ -1,24 +1,25 @@
 const webpack = require('webpack');
 const uglify = require('uglifyjs-webpack-plugin');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
-const ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 module.exports = {
+	mode: "production",
 	entry: {
 		"bundle": './js/src/index.ts'
 	},
 	output: {
-		filename: './js/dist/[name].js'
+		filename: '../js/dist/[name].js'
 	},
-	devtool: 'cheap-module-eval-source-map',
 	module: {
 		rules: [
 			{
 				test: /\.vue$/,
 				loader: 'vue-loader',
 				options: {
-					extractCSS: true
-				}
+					loaders: {
+						css: "sass-loader"
+					}
+				},
 			},
 			{
 				test: /(.js|.ts)$/,
@@ -40,14 +41,13 @@ module.exports = {
 					}
 				]
 			},
-			// {
-			// 	test: /scss$/,
-			// 	use: ['style-loader', 'css-loader', 'sass-loader']
-			// }
+			{
+				test: /scss$/,
+				use: ['style-loader', 'css-loader', 'sass-loader']
+			},
 		]
 	},
 	plugins: [
-		new ExtractTextPlugin("./css/style.css"),
 		new uglify({
 			extractComments: true,
 			parallel: true,

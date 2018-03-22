@@ -1,47 +1,54 @@
-.work-wrapper{
-	// background-color:white;
-	width:1200px;
-	// color:#fab2d7;
-	// padding:40px;
-	padding:40px;
-	margin-bottom:0;
+@import "../../../scss/master.scss";
+.work-wrapper {
+  // background-color:white;
+  width: 1200px;
+  // color:#fab2d7;
+  // padding:40px;
+  padding: 10px;
+  margin-bottom: 0;
+  @include breakpoint(sm) {
+    padding: 40px;
+  }
 }
-.internal-page-wrapper{
-	background-color:white;
-	color:black;
-	padding-top:1px;
-	::selection{
-		background-color:rgba(#fab2d7, (254 / 255));
-		opacity:1;
-		color:white;
-	}
-	h1{
-		font-size:1.6em;
-		margin-bottom:1em;
-	}
+.internal-page-wrapper {
+  background-color: white;
+  color: black;
+  padding-top: 1px;
+  ::selection {
+    background-color: rgba(#fab2d7,  (254 / 255));
+    opacity: 1;
+    color: white;
+  }
+  h1 {
+    font-size: 1.6em;
+    margin-bottom: 1em;
+  }
 }
-.VueCarousel{
-	&-slide{
-		height:600px;
-		overflow:auto;
-	}
+.VueCarousel {
+  &-slide {
+    height: 600px;
+    overflow: auto;
+  }
 
-	&-pagination{
-		position:absolute;
-		bottom:0;
-	}
+  &-pagination {
+    position: absolute;
+    bottom: 0;
+  }
 }
-.header-wrapper{
-	width:1200px;
-	margin-left:auto;
-	margin-right:auto;
-	padding:40px;
-	+ .internal-page-wrapper .wrapper{
-		margin-top:3vh;
-	}
-	h2{
-		font-size:2em;
-		text-transform:uppercase;
-
-	}
+.header-wrapper {
+  width: 1200px;
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 10px;
+  @include breakpoint(sm) {
+    padding: 40px;
+  }
+  + .internal-page-wrapper .wrapper {
+    margin-top: 3vh;
+  }
+  h2 {
+    font-size: 2em;
+    text-transform: uppercase;
+  }
 }

@@ -23,28 +23,36 @@
 	</div>
 </template>
 <script>
-import { Carousel, Slide } from 'vue-carousel';
-import contentBlock from '../components/content-block';
+import { Carousel, Slide } from "vue-carousel";
+import contentBlock from "../components/content-block";
 export default {
-	props: {
-		page: Object
-	},
-	components: {
-		contentBlock: contentBlock,
-		Carousel,
-		Slide
-	},
-	methods: {
-		slideSrcset: function(img){
-			let srcset = [];
-			srcset.push(img.src + img.fileType + " " + img.baseSize + "w");
+  props: {
+    page: Object
+  },
+  components: {
+    contentBlock: contentBlock,
+    Carousel,
+    Slide
+  },
+  methods: {
+    slideSrcset: function(img) {
+      let srcset = [];
+      srcset.push(img.src + img.fileType + " " + img.baseSize + "w");
 
-			img.srcset.forEach(function(size){
-				srcset.push(img.src + "@" + size + img.fileType + " " + Math.round(img.baseSize * size) + "w");
-			});
-			return srcset;
-		}
-	}
+      img.srcset.forEach(function(size) {
+        srcset.push(
+          img.src +
+            "@" +
+            size +
+            img.fileType +
+            " " +
+            Math.round(img.baseSize * size) +
+            "w"
+        );
+      });
+      return srcset;
+    }
+  }
 };
 </script>
 <style lang="scss">

@@ -5,8 +5,8 @@
   "main": "js/index.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "webpack-dev-server --history-api-fallback",
-    "prod": "webpack --config webpack.prod.js"
+    "start": "webpack-serve --history-api-fallback --open --config webpack.config.js",
+    "build": "webpack --config webpack.prod.js"
   },
   "repository": {
     "type": "git",
@@ -19,29 +19,32 @@
   },
   "homepage": "https://github.com/floatingdino/sh5#readme",
   "devDependencies": {
-    "@babel/cli": "^7.0.0-beta.39",
-    "@babel/core": "^7.0.0-beta.39",
-    "@babel/preset-env": "^7.0.0-beta.39",
-    "@babel/preset-typescript": "^7.0.0-beta.39",
-    "babel-loader": "^8.0.0-beta.0",
+    "@babel/cli": "^7.0.0-beta.42",
+    "@babel/core": "^7.0.0-beta.42",
+    "@babel/preset-env": "^7.0.0-beta.42",
+    "@babel/preset-typescript": "^7.0.0-beta.42",
+    "babel-loader": "^8.0.0-beta.2",
     "babel-plugin-transform-runtime": "^6.23.0",
+    "connect-history-api-fallback": "^1.5.0",
+    "css-loader": "^0.28.11",
     "extract-text-webpack-plugin": "^3.0.2",
-    "node-sass": "^4.7.2",
-    "sass-loader": "^6.0.6",
-    "ts-loader": "^3.4.0",
-    "uglifyjs-webpack-plugin": "^1.1.8",
-    "vue-loader": "^14.1.1",
-    "vue-template-compiler": "^2.5.13",
-    "webpack": "^3.10.0",
-    "webpack-bundle-analyzer": "^2.10.0",
-    "webpack-dev-server": "^2.11.1"
+    "koa-connect": "^2.0.1",
+    "node-sass": "^4.8.3",
+    "sass-loader": "^6.0.7",
+    "style-loader": "^0.20.3",
+    "ts-loader": "^3.5.0",
+    "uglifyjs-webpack-plugin": "^1.2.4",
+    "vue-loader": "^14.2.1",
+    "vue-template-compiler": "^2.5.16",
+    "webpack": "^4.2.0",
+    "webpack-bundle-analyzer": "^2.11.1",
+    "webpack-cli": "^2.0.12",
+    "webpack-serve": "^0.2.0"
   },
   "dependencies": {
     "autotrack": "^2.4.1",
-    "css-loader": "^0.28.9",
-    "style-loader": "^0.20.1",
-    "vue": "^2.5.13",
-    "vue-carousel": "^0.6.5",
+    "vue": "^2.5.16",
+    "vue-carousel": "^0.6.9",
     "vue-router": "^3.0.1",
     "whatwg-fetch": "^2.0.3"
   }
