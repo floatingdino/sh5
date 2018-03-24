@@ -1,16 +1,16 @@
 img{
-	&.lazy{
-		opacity:0;
-		visibility:hidden;
-		transition: all .8s;
-		&.loaded{
-			opacity:1;
-			visibility:visible
-		}
-	}
+  &.lazy{
+    opacity:0;
+    visibility:hidden;
+    transition: all .8s;
+    &.loaded{
+      opacity:1;
+      visibility:visible
+    }
+  }
 }
 img, .wrapper{max-width:100%;height:auto;max-height:auto}
 button{
-	color:inherit;
-	line-height:normal;
+  color:inherit;
+  line-height:normal;
 }

@@ -1,25 +1,25 @@
 {
-	"title": "Privacy Policy",
-	"template": "page",
-	"slug": "privacy",
-	"sections": [
-		{
-			"content": "LAST UPDATED: 23RD FEBRUARY, 2017"
-		},
-		{
-			"content":"I respect your right to privacy, so it's important (and legally required) for me to tell you about how my site deals with your data."
-		},
-		{
-			"content":"I do collect some personal data from you - nothing scary though; just the usual cookies and usage data. I just use these to remember who you are if you return to my site and keep track of when you visit."
-		},
-		{
-			"content":"I do everything in my power to make sure the data I collect from you is safe. If you need to know who can access the data I collect (it's just me), or anything else about your data, you're entitled to ask me at anytime, using the contact details found on this site."
-		},
-		{
-			"content":"I use Google Analytics to track users on my site, and their policy is to keep data for 24 months."
-		},
-		{
-			"content":"If you need to contact me with regards to this policy, please email me at <a href='mailto:sam@samhaakman.com'>sam@samhaakman.com</a>"
-		}
-	]
+  "title": "Privacy Policy",
+  "template": "page",
+  "slug": "privacy",
+  "sections": [
+    {
+      "content": "LAST UPDATED: 23RD FEBRUARY, 2017"
+    },
+    {
+      "content":"I respect your right to privacy, so it's important (and legally required) for me to tell you about how my site deals with your data."
+    },
+    {
+      "content":"I do collect some personal data from you - nothing scary though; just the usual cookies and usage data. I just use these to remember who you are if you return to my site and keep track of when you visit."
+    },
+    {
+      "content":"I do everything in my power to make sure the data I collect from you is safe. If you need to know who can access the data I collect (it's just me), or anything else about your data, you're entitled to ask me at anytime, using the contact details found on this site."
+    },
+    {
+      "content":"I use Google Analytics to track users on my site, and their policy is to keep data for 24 months."
+    },
+    {
+      "content":"If you need to contact me with regards to this policy, please email me at <a href='mailto:sam@samhaakman.com'>sam@samhaakman.com</a>"
+    }
+  ]
 }

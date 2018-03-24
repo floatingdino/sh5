@@ -1,38 +1,38 @@
 {
-	"blogs": [
-		{
-			"slug": "coyo",
-			"preview_image": "/img/coyo_preview",
-		  "title": "COYO",
-			"url": "http://coyo.com/au"
-		},
-		{
-			"slug": "rf",
-			"preview_image": "/img/rf_preview",
-	    "title": "RUCKUS FIENDS",
+  "blogs": [
+    {
+      "slug": "coyo",
+      "preview_image": "/img/coyo_preview",
+      "title": "COYO",
+      "url": "http://coyo.com/au"
+    },
+    {
+      "slug": "rf",
+      "preview_image": "/img/rf_preview",
+      "title": "RUCKUS FIENDS",
 
-	    "url": "https://ruckusfiends.tumblr.com",
-	    "tech": ["Tumblr", "Git", "Masonry Grid", "Infinite Scroll"]
-	 	},
-		{
-			"title": "Good Life Suites",
-			"url": "https://goodlifesuites.com.au"
-		},
-		{
-			"title": "TOP 10 Holiday Parks",
-			"url": "https://top10.co.nz"
-		},
-		{
-			"title": "Fastrack",
-			"url": "https://fastrackg.com"
-		},
-		{
-			"title": "Quantum Accounting",
-			"url": "http://qagroup.com.au"
-		},
-		{
-			"title": "Staysouth",
-			"url": "https://staysouth.com"
-		}
-	]
+      "url": "https://ruckusfiends.tumblr.com",
+      "tech": ["Tumblr", "Git", "Masonry Grid", "Infinite Scroll"]
+     },
+    {
+      "title": "Good Life Suites",
+      "url": "https://goodlifesuites.com.au"
+    },
+    {
+      "title": "TOP 10 Holiday Parks",
+      "url": "https://top10.co.nz"
+    },
+    {
+      "title": "Fastrack",
+      "url": "https://fastrackg.com"
+    },
+    {
+      "title": "Quantum Accounting",
+      "url": "http://qagroup.com.au"
+    },
+    {
+      "title": "Staysouth",
+      "url": "https://staysouth.com"
+    }
+  ]
 }

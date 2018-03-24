@@ -1,30 +1,30 @@
 <template>
-	<div class='wrapper'>
-		<h1 v-if='page.title'>{{page.title}}</h1>
-		<main class='wrapper-content'>
-			<content-block v-if='page.sections' v-for='(content, index) in page.sections' :key='index' :content='content'></content-block>
-		</main>
-		<blogSidebar title='Work'/>
-	</div>
+  <div class='wrapper'>
+    <h1 v-if='page.data.title'>{{PrismicDOM.RichText.asText(page.data.title)}}</h1>
+    <main class='wrapper-content' v-html="PrismicDOM.RichText.asHtml(page.data.body)" />
+    <blogSidebar title='Work' :api="api" />
+  </div>
 </template>
 <script>
-import contentBlock from '../components/content-block';
+import blogSidebar from "../components/blog-sidebar";
 
-import blogSidebar from '../components/blog-sidebar';
+const PrismicDOM = require("prismic-dom");
+
 export default {
-	props: {
-		'page': Object
-	},
-	data:function(){
-		return({
-			"loaded": false,
-			"title":"Sam Haakman", //Defaults until fetch can grab data
-			"sections": []
-		})
-	},
-	components: {
-		blogSidebar: blogSidebar,
-		contentBlock: contentBlock
-	}
+  props: {
+    page: Object,
+    api: Object
+  },
+  data: function() {
+    return {
+      loaded: false,
+      title: "Sam Haakman", //Defaults until fetch can grab data
+      sections: [],
+      PrismicDOM
+    };
+  },
+  components: {
+    blogSidebar: blogSidebar
+  }
 };
 </script>

@@ -1,44 +1,38 @@
 <template>
-	<article>
-		<img :src='data.preview_image + ".png"' :srcset='previewSrcset' v-on:load='load()' :class='{"lazy-img-preview":true, loaded : this.loaded}'>
-		<h3>{{data.title}}</h3>
-		<router-link role='button' class='btn' :to='data.slug'>Check it out</router-link>
-	</article>
+  <article :data-id="id">
+    <img :src='data.data.preview_image.url' v-on:load='load()' :class='{"lazy-img-preview":true, loaded : this.loaded}' :srcset='srcset' sizes="(min-width: 1400px) 400px, (min-width: 950px) 33vw, 100vw ">
+    <h3>{{PrismicDOM.RichText.asText(data.data.title)}}</h3>
+    <router-link role='button' class='btn' :to='`portfolio/${data.uid}`'>Check it out</router-link>
+  </article>
 </template>
 <script>
+const PrismicDOM = require("prismic-dom");
 export default {
-	props: {
-		data: Object
-	},
-	data: function(){
-		return {loaded: this.loaded}
-	},
-	created: function(){
-		this.loaded = false;
-	},
-	computed: {
-		previewSrcset: function(){
-			return generateSrcset(this.data.preview_image);
-		}
-	},
-	methods: {
-		load: function(){
-			this.loaded = true;
-		}
-	}
+  props: {
+    data: Object,
+    slugs: Array,
+    id: String
+  },
+  data: function() {
+    return {
+      loaded: this.loaded,
+      PrismicDOM
+    };
+  },
+  created: function() {
+    this.loaded = false;
+  },
+  methods: {
+    load: function() {
+      this.loaded = true;
+    }
+  },
+  computed: {
+    srcset: function() {
+      return `${this.data.data.preview_image.url} 400w, ${
+        this.data.data.preview_image.retina.url
+      } 600w`;
+    }
+  }
 };
-function generateSrcset(src){
-	const baseSize = 697;
-	const sizes = [0.5, 1.5];
-	const filetype = ".png";
-
-	let srcset = [];
-
-	srcset.push(src + filetype + " " + baseSize + "w");
-
-	sizes.forEach(function(size){
-		srcset.push(src + "@" + size + filetype + " " + Math.round(baseSize * size) + "w");
-	});
-	return srcset;
-}
 </script>

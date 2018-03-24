@@ -1,51 +1,51 @@
 {
-	"title": "Sam Haakman - Super, Developer",
-	"template": "homePage",
-	"slug": "/",
-	"sections":[
-		{
-			"title": "What I love",
-			"content": "What actually makes a good front end developer?<br>If all you're looking for is a dev that \"can make it look like the mockups\" you're going to end up with the dude who did the W3Schools HTML course and heard that everyone uses Bootstrap."
-		},
-		{
-			"content": "There's another type of developer out there though - one who cares about user experience; who understands and reinforces the intent behind a design and produces a robust site that, against all odds, looks better than the mocks, all with a little magic sprinkled on top."
-		},
-		{
-			"content": "That's me."
-		},
-		{
-			"content": "I build super-fast sites without resorting to 'fake fixes'. Sites that just work - and they look great, no matter what device you use.<br>I love seeing a spot in a design to add some JUICE and then sitting down with a designer to make it happen. I'm collaborative, I'm flexible, I'm whatever spicy marketing term you want to apply to me."
-		},
-		{
-			"content": "Designs entrusted to me are in good hands."
-		},
-		{
-			"title": "What I do",
-			"list": [
-				"Superfast, semantically sparkling HTML",
-				"Ridiculous Sass / CSS3",
-				"Snappy React & Vue",
-				"Bootstrap & Foundation",
-				"Intelligent solutions in PHP / Laravel Blade",
-				"Shiny new ES6 and Typescript",
-				"Vanilla Javascript wizardry",
-				"jQuery (if you insist)",
-				"Habitual Git commits",
-				"NGINX trickery",
-				"And a heap of other stuff - I'm super quick at learning new languages / frameworks too"
-			]
-		},
-		{
-			"title": "Contact",
-			"content": "If you would like to work with me, you can hit me up here:"
-		},
-		{
-			"content": "email: sam@samhaakman.com",
-			"link": "mailto:sam@samhaakman.com"
-		},
-		{
-			"content": "twitter: @thefloatingdino",
-			"link": "http://twitter.com/thefloatingdino"
-		}
-	]
+  "title": "Sam Haakman - Super, Developer",
+  "template": "homePage",
+  "slug": "/",
+  "sections":[
+    {
+      "title": "What I love",
+      "content": "What actually makes a good front end developer?<br>If all you're looking for is a dev that \"can make it look like the mockups\" you're going to end up with the dude who did the W3Schools HTML course and heard that everyone uses Bootstrap."
+    },
+    {
+      "content": "There's another type of developer out there though - one who cares about user experience; who understands and reinforces the intent behind a design and produces a robust site that, against all odds, looks better than the mocks, all with a little magic sprinkled on top."
+    },
+    {
+      "content": "That's me."
+    },
+    {
+      "content": "I build super-fast sites without resorting to 'fake fixes'. Sites that just work - and they look great, no matter what device you use.<br>I love seeing a spot in a design to add some JUICE and then sitting down with a designer to make it happen. I'm collaborative, I'm flexible, I'm whatever spicy marketing term you want to apply to me."
+    },
+    {
+      "content": "Designs entrusted to me are in good hands."
+    },
+    {
+      "title": "What I do",
+      "list": [
+        "Superfast, semantically sparkling HTML",
+        "Ridiculous Sass / CSS3",
+        "Snappy React & Vue",
+        "Bootstrap & Foundation",
+        "Intelligent solutions in PHP / Laravel Blade",
+        "Shiny new ES6 and Typescript",
+        "Vanilla Javascript wizardry",
+        "jQuery (if you insist)",
+        "Habitual Git commits",
+        "NGINX trickery",
+        "And a heap of other stuff - I'm super quick at learning new languages / frameworks too"
+      ]
+    },
+    {
+      "title": "Contact",
+      "content": "If you would like to work with me, you can hit me up here:"
+    },
+    {
+      "content": "email: sam@samhaakman.com",
+      "link": "mailto:sam@samhaakman.com"
+    },
+    {
+      "content": "twitter: @thefloatingdino",
+      "link": "http://twitter.com/thefloatingdino"
+    }
+  ]
 }

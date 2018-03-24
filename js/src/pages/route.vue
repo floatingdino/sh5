@@ -1,8 +1,8 @@
 <template>
-	<transition name="v-loader" mode="out-in">
-		<component v-if="!loading" :is="template" :page="page" />
-		<img v-if="loading" src="/img/thick-spinner.svg" class="route-spinner" title="Loading..." alt="Loading, please wait">
-	</transition>
+  <transition name="v-loader" mode="out-in">
+    <component v-if="!loading" :is="template" :page="page" :api="api" />
+    <img v-if="loading" src="/img/thick-spinner.svg" class="route-spinner" title="Loading..." alt="Loading, please wait">
+  </transition>
 </template>
 <script>
 import homePage from "./homepage";
@@ -10,46 +10,73 @@ import page from "./page";
 import workPage from "./work";
 
 import "whatwg-fetch";
+
+const Prismic = require("prismic-javascript");
+
+const apiEndpoint = "https://samhaakman.prismic.io/api/v2";
+
 export default {
   props: {
     cta: Object
   },
   watch: {
-    $route(to, from) {
+    $route() {
       this.updatePageData();
     }
   },
   components: {
-    homePage: homePage,
+    homepage: homePage,
     page: page,
-    work: workPage
+    portfo: workPage
   },
   data: function() {
     return {
       template: "",
       loading: true,
-      dataPath: () => {
-        return `/js/data/${
-          this.$route.path == "/" ? "homepage" : this.$route.path.slice(1)
-        }.json`;
-      },
       slug: this.$route.path.slice(1),
-      page: {}
+      page: {},
+      api: null
     };
+  },
+  computed: {
+    dataPath: function() {
+      console.log(this.$route.path.match(/\/([^\/]*)$/));
+      switch (this.$route.path) {
+        case "/":
+          return "home";
+          break;
+        default:
+          return this.$route.path.match(/\/([^\/]*)$/)[1];
+      }
+    },
+    type: function() {
+      switch (this.$route.path.match(/^\/([^\/]*)/)[1]) {
+        case "":
+          return "homepage";
+          break;
+        case "portfolio":
+          return "portfo";
+          break;
+        default:
+          return "page";
+      }
+    }
   },
   methods: {
     updatePageData: function() {
       this.page = {};
       this.loading = true;
-      // TODO: plug into Keystone so that this can be managed through an interface, not just uploading plain JSON
-      fetch(this.dataPath()) //ES6 string interpolation
-        .then(resp => resp.json())
-        .then(data => {
-          this.template = data.template;
-          this.slug = data.slug;
-          this.loading = false;
-          Object.assign(this.page, data);
-        })
+      console.log(this.type, this.dataPath);
+      this.api
+        .getByUID(this.type, this.dataPath)
+        .then(
+          function(response) {
+            Object.assign(this.page, response);
+            this.template = response.type;
+            this.slug = this.$route.path;
+            this.loading = false;
+          }.bind(this)
+        )
         .catch(
           function(error) {
             console.warn("Something went wrong with navigation", this);
@@ -75,7 +102,13 @@ export default {
     }
   },
   created: function() {
-    this.updatePageData();
+    Prismic.getApi(apiEndpoint)
+      .then(api => {
+        this.api = api;
+      })
+      .then(() => {
+        this.updatePageData();
+      });
   }
 };
 </script>

@@ -1,23 +1,23 @@
 {
-	"slug": "rf",
-	"template": "work",
-	"title": "RUCKUS FIENDS",
-	"url": "https://ruckusfiends.tumblr.com",
-	"tech": ["Tumblr", "Git", "Masonry Grid", "Infinite Scroll"],
-	"sections":[
-		{
-			"content": "Ruckus Fiends is my car and lifestyle blog, aka creative dumpster. As tends to happen with these sorts of projects, I went a bit over the top with branding and design for a casual pastime."
-		},
-		{
-			"content": "Initially I drew inspiration from a lot of skate brands, but let's not talk about that stage of the blog.<br>Eventually I settled on a pixel art style with digital glitch elements, which I think is pretty unique and complements the style of the blog and brand really well. I learned a lot creating the logo animation, and have come to love dithering and pixel art."
-		},
-		{
-			"content": "During some down time I decided that I couldnt find a theme that I liked for the blog, so I set out to make one myself - A multi-column, responsive, colourful yet minimal tumblr theme."
-		},
-		{
-			"content": "Enter <a href='https://www.tumblr.com/theme/39539' target='_blank'>fiendish minimal.</a>"
-		}
-	],
-	"agency": "Personal",
-	"role": "Creative Director"
+  "slug": "rf",
+  "template": "work",
+  "title": "RUCKUS FIENDS",
+  "url": "https://ruckusfiends.tumblr.com",
+  "tech": ["Tumblr", "Git", "Masonry Grid", "Infinite Scroll"],
+  "sections":[
+    {
+      "content": "Ruckus Fiends is my car and lifestyle blog, aka creative dumpster. As tends to happen with these sorts of projects, I went a bit over the top with branding and design for a casual pastime."
+    },
+    {
+      "content": "Initially I drew inspiration from a lot of skate brands, but let's not talk about that stage of the blog.<br>Eventually I settled on a pixel art style with digital glitch elements, which I think is pretty unique and complements the style of the blog and brand really well. I learned a lot creating the logo animation, and have come to love dithering and pixel art."
+    },
+    {
+      "content": "During some down time I decided that I couldnt find a theme that I liked for the blog, so I set out to make one myself - A multi-column, responsive, colourful yet minimal tumblr theme."
+    },
+    {
+      "content": "Enter <a href='https://www.tumblr.com/theme/39539' target='_blank'>fiendish minimal.</a>"
+    }
+  ],
+  "agency": "Personal",
+  "role": "Creative Director"
 }

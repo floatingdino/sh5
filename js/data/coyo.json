@@ -1,43 +1,43 @@
 {
-	"slug": "coyo",
-	"template": "work",
-	"title": "COYO",
-	"sections": [
-		{
-			"content": "This was my uni internship project. I did most of the front end work on this site. I loved the design, and working on it taught me a lot about both the technical and creative aspects of web development."
-		},
-		{
-			"content": "Working closely with Pam, the designer was huge - we were able to tweak the design as we went to improve the final product, and having that instant feedback loop when you create a sweet new feature is hella gratifying. The type treatment on this site is so sick too. Using non-Google / Typekit fonts is super nice and adds that extra special intangible aspect to a site."
-		},
-		{
-			"content": "One of my favourite features on this site is the Masonry / infinite scroll implementation on the blog &amp; recipes pages. Having the freedom to have those ragged grids makes for a look that stands out, and the downsides are totally eliminated by implementing infinite scroll."
-		},
-		{
-			"content": "I love this studio, the product is great, and I'm still super proud of my work on this."
-		}
-	],
-	"agency": "One Iota",
-	"role": "Front End Intern",
-	"url": "http://coyo.com",
-	"tech": ["Wordpress", "Foundation", "SCSS", "Gulp", "Git", "Masonry Grid"],
-	"slideshow": [
-		 {
-				"src":"/img/coyo/coyo_homepage",
-				"fileType": ".jpg",
-				"srcset": [1.5, 1.125, 0.5],
-				"baseSize": 1200
-		 },
-		 {
-				"src":"/img/coyo/coyo_recipes",
-				"fileType": ".jpg",
-				"srcset": [1.5, 1.125, 0.5],
-				"baseSize": 1200
-		 },
-		 {
-				"src":"/img/coyo/coyo_article",
-				"fileType": ".jpg",
-				"srcset": [1.5, 1.125, 0.5],
-				"baseSize": 1200
-		 }
-	]
+  "slug": "coyo",
+  "template": "work",
+  "title": "COYO",
+  "sections": [
+    {
+      "content": "This was my uni internship project. I did most of the front end work on this site. I loved the design, and working on it taught me a lot about both the technical and creative aspects of web development."
+    },
+    {
+      "content": "Working closely with Pam, the designer was huge - we were able to tweak the design as we went to improve the final product, and having that instant feedback loop when you create a sweet new feature is hella gratifying. The type treatment on this site is so sick too. Using non-Google / Typekit fonts is super nice and adds that extra special intangible aspect to a site."
+    },
+    {
+      "content": "One of my favourite features on this site is the Masonry / infinite scroll implementation on the blog &amp; recipes pages. Having the freedom to have those ragged grids makes for a look that stands out, and the downsides are totally eliminated by implementing infinite scroll."
+    },
+    {
+      "content": "I love this studio, the product is great, and I'm still super proud of my work on this."
+    }
+  ],
+  "agency": "One Iota",
+  "role": "Front End Intern",
+  "url": "http://coyo.com",
+  "tech": ["Wordpress", "Foundation", "SCSS", "Gulp", "Git", "Masonry Grid"],
+  "slideshow": [
+     {
+        "src":"/img/coyo/coyo_homepage",
+        "fileType": ".jpg",
+        "srcset": [1.5, 1.125, 0.5],
+        "baseSize": 1200
+     },
+     {
+        "src":"/img/coyo/coyo_recipes",
+        "fileType": ".jpg",
+        "srcset": [1.5, 1.125, 0.5],
+        "baseSize": 1200
+     },
+     {
+        "src":"/img/coyo/coyo_article",
+        "fileType": ".jpg",
+        "srcset": [1.5, 1.125, 0.5],
+        "baseSize": 1200
+     }
+  ]
 }
