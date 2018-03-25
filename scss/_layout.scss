@@ -1,7 +1,7 @@
 /*Fallback for browsers without flex support*/
 .wrapper-content {
   width: 60%;
-  padding: 0 15px 60px;
+  padding-bottom: 60px;
   float: left;
   max-width: 100%;
   > :last-child {
@@ -12,7 +12,12 @@
 .wrapper {
   display: block;
   width: 1400px;
+
   margin: 10vh auto 10vh;
+  padding: 0 10px;
+  @include breakpoint(sm) {
+    padding: 0 40px;
+  }
   &:after,
   &:before {
     display: table;
@@ -41,7 +46,6 @@
   }
   .wrapper-content {
     flex: 3 1 600px;
-    padding: 0 15px 60px;
   }
 
   h1 {

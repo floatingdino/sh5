@@ -20,11 +20,11 @@
             <h1 v-if="page.data.title && ! page.data.site_link">
               <span class="pink-bg-text">{{PrismicDOM.RichText.asText(page.data.title)}}</span>
             </h1>
-            <p class="portfolio-header-text-details" v-if="page.data.studio || page.data.project_date">
+            <p class="portfolio-header-text-details" v-if="page.data.studio || page.data.project_date" title="Studio and Project Date">
               <span class="pink-bg-text">
                 {{PrismicDOM.RichText.asText(page.data.studio)}}
                 <span v-if="page.data.studio && page.data.project_date">▴</span>
-                {{project_date}}
+                <time>{{project_date}}</time>
               </span>
             </p>
             <p class="portfolio-header-text-details" v-if="page.data.excerpt"><span class="pink-bg-text" v-html="PrismicDOM.RichText.asText(page.data.excerpt)" /></p>
@@ -32,8 +32,8 @@
         </div>
       </header>
       <div class="wrapper work-wrapper">
-
         <main class="wrapper-content">
+          <component v-for="(slice, index) in page.data.body1" :is="slice.slice_type" :key="index" :data="slice.primary" />
           <router-link role="button" class="btn" to="/">Go home</router-link>
         </main>
       </div>
@@ -41,16 +41,21 @@
   </div>
 </template>
 <script>
+import imageGrid from "../components/image-grid";
+
 const PrismicDOM = require("prismic-dom");
 
 export default {
   props: {
     page: Object,
-    api: Object,
+    api: Object
+  },
+  components: {
+    image_grid: imageGrid
   },
   data() {
     return {
-      PrismicDOM,
+      PrismicDOM
     };
   },
   computed: {
@@ -67,13 +72,13 @@ export default {
         "September",
         "October",
         "November",
-        "December",
+        "December"
       ];
       const date = new Date(this.page.data.project_date);
 
       return `${months[date.getMonth()]} ${date.getFullYear()}`;
-    },
-  },
+    }
+  }
 };
 </script>
 <style lang="scss">
