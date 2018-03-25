@@ -67,7 +67,12 @@ module.exports.serve = {
     app.use(convert(history({
       index: "index.html",
       rewrites: [
-        { from: /^\/portfolio/, to: "index.html"}
+        {
+          from: /hot-update\.json$/,
+          to(context) {
+            return context.parsedUrl.pathname.replace(/.*(\/[^\/]*hot-update\.json)$/, /$&/);
+          }
+        }
       ]
     })));
   }

@@ -18,8 +18,6 @@ import blogPreview from "./blog-preview";
 
 const Prismic = require("prismic-javascript");
 
-const apiEndpoint = "https://samhaakman.prismic.io/api/v2";
-
 export default {
   props: {
     title: String,
@@ -29,7 +27,7 @@ export default {
     },
     api: Object
   },
-  data: function() {
+  data() {
     return {
       // Defaults to empty and then fetches data in created
       loaded: false,
@@ -38,20 +36,18 @@ export default {
       }
     };
   },
-  created: function() {
+  created() {
     this.api
       .query(Prismic.Predicates.at("document.type", "portfo"), {
         orderings: "[my.portfo.date desc]"
       })
-      .then(
-        function(response) {
-          Object.assign(this.response, response);
-          this.loaded = true;
-        }.bind(this)
-      );
+      .then(response => {
+        Object.assign(this.response, response);
+        this.loaded = true;
+      });
   },
   components: {
-    blogPreview: blogPreview
+    blogPreview
   }
 };
 </script>

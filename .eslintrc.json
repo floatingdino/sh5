@@ -1,7 +1,22 @@
 {
-  "extends": "airbnb",
-  "options": {
+  "extends": "airbnb-base",
+  "plugins": ["html"],
+  "env": {
+    "browser": true
+  },
+  "globals": {
+    "ga": false
+  },
+  "rules": {
     "quotes": ["warn", "double"],
-    "no-tabs": ["warn"]
+    "no-console": "off",
+    "import/extensions": "never"
+  },
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "extensions": [".js", ".ts", ".vue"]
+      }
+    }
   }
 }

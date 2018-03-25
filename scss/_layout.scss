@@ -1,48 +1,56 @@
 /*Fallback for browsers without flex support*/
-.wrapper-content{
-  width:60%;
-  padding:0 15px 60px;
-  float:left;
-  max-width:100%;
-  > :last-child{
-    margin-bottom:0;
+.wrapper-content {
+  width: 60%;
+  padding: 0 15px 60px;
+  float: left;
+  max-width: 100%;
+  > :last-child {
+    margin-bottom: 0;
   }
 }
 
-.wrapper{
-  display:block;
-  width:1400px;
-  margin:10vh auto 10vh;
-  &:after, &:before{
-     display:table;
-    content:''
+.wrapper {
+  display: block;
+  width: 1400px;
+  margin: 10vh auto 10vh;
+  &:after,
+  &:before {
+    display: table;
+    content: "";
   }
-  &:after{
-   clear:both;
+  &:after {
+    clear: both;
   }
 }
 
-@supports (display:flex){
-  .wrapper, .wrapper-content{float:none;width:auto}
-  .wrapper{
-    display:flex;
-    width:1400px;
+@supports (display: flex) {
+  .wrapper,
+  .wrapper-content {
+    float: none;
+    width: auto;
+  }
+  .wrapper {
+    display: flex;
+    width: 1400px;
     flex-flow: row wrap;
     justify-content: space-between;
-    &:after, &:before{
-       display:none;
+    &:after,
+    &:before {
+      display: none;
     }
   }
-  .wrapper-content{
-    flex:3 1 600px;
-    padding:0 15px 60px;
+  .wrapper-content {
+    flex: 3 1 600px;
+    padding: 0 15px 60px;
   }
 
-  h1{
-    flex:100% 0;
+  h1 {
+    flex: 100% 0;
   }
-
 }
-@media screen and (max-width:760px){
-  .wrapper-content{width:100%;float:none;}
+@media screen and (max-width: 760px) {
+  .wrapper-content {
+    width: 100%;
+    float: none;
+  }
 }

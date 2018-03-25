@@ -8,23 +8,24 @@
   </div>
 </template>
 <script>
-import contentBlock from '../components/content-block';
+import contentBlock from "../components/content-block";
+
 export default {
   props: {
-    'cta': Object,
-    'page': Object
+    cta: Object,
+    page: Object,
+    api: Object,
   },
-  data: function(){
-    return ({
-      'title': '',
-      'loaded': false,
-      'sections':[]
-    });
-
+  data() {
+    return {
+      title: "",
+      loaded: false,
+      sections: [],
+    };
   },
   components: {
-    contentBlock: contentBlock
-  }
+    contentBlock,
+  },
 };
 </script>
 <style lang="scss">

@@ -4,10 +4,37 @@
       <h2><router-link to="/">Sam Haakman</router-link></h2>
     </div>
     <div class="internal-page-wrapper">
-      <div class='wrapper work-wrapper'>
-        <h1 v-if='page.data.title'>{{PrismicDOM.RichText.asText(page.data.title)}}</h1>
-        <main class='wrapper-content'>
-          <router-link role='button' class='btn btn-pink' to='/'>Go home</router-link>
+      <header class="portfolio-header">
+        <picture>
+          <source sizes="100vw" :srcset="page.data.featured_image.mobile.url + ', ' + page.data.featured_image.mobile_retina.url + ' 2x'" media="(max-width:1024px)"/>
+          <source sizes="(min-width:768px) 840px, 100vw" :srcset="page.data.featured_image.url + ', ' +  page.data.featured_image.retina.url + ' 2x'" />
+          <img :src="page.data.featured_image.url" sizes="(min-width:768px) 840px, 100vw" :srcset="page.data.featured_image.url + ', ' + page.data.featured_image.retina.url + ' 2x'" class="portfolio-header-image img-spinner" />
+        </picture>
+        <div class="portfolio-header-text">
+          <div>
+            <h1 v-if="page.data.title && page.data.site_link">
+              <a :href="page.data.site_link.url" rel="nofollow noopener" target="_blank" class="pink-bg-text">
+                {{PrismicDOM.RichText.asText(page.data.title)}} →
+              </a>
+            </h1>
+            <h1 v-if="page.data.title && ! page.data.site_link">
+              <span class="pink-bg-text">{{PrismicDOM.RichText.asText(page.data.title)}}</span>
+            </h1>
+            <p class="portfolio-header-text-details" v-if="page.data.studio || page.data.project_date">
+              <span class="pink-bg-text">
+                {{PrismicDOM.RichText.asText(page.data.studio)}}
+                <span v-if="page.data.studio && page.data.project_date">▴</span>
+                {{project_date}}
+              </span>
+            </p>
+            <p class="portfolio-header-text-details" v-if="page.data.excerpt"><span class="pink-bg-text" v-html="PrismicDOM.RichText.asText(page.data.excerpt)" /></p>
+          </div>
+        </div>
+      </header>
+      <div class="wrapper work-wrapper">
+
+        <main class="wrapper-content">
+          <router-link role="button" class="btn" to="/">Go home</router-link>
         </main>
       </div>
     </div>
@@ -18,35 +45,35 @@ const PrismicDOM = require("prismic-dom");
 
 export default {
   props: {
-    page: Object
+    page: Object,
+    api: Object,
   },
-  data: function() {
+  data() {
     return {
-      PrismicDOM
+      PrismicDOM,
     };
   },
-  created: function() {
-    console.log(this);
-  },
-  methods: {
-    slideSrcset: function(img) {
-      let srcset = [];
-      srcset.push(img.src + img.fileType + " " + img.baseSize + "w");
+  computed: {
+    project_date() {
+      const months = [
+        "January",
+        "February",
+        "March",
+        "April",
+        "May",
+        "June",
+        "July",
+        "August",
+        "September",
+        "October",
+        "November",
+        "December",
+      ];
+      const date = new Date(this.page.data.project_date);
 
-      img.srcset.forEach(function(size) {
-        srcset.push(
-          img.src +
-            "@" +
-            size +
-            img.fileType +
-            " " +
-            Math.round(img.baseSize * size) +
-            "w"
-        );
-      });
-      return srcset;
-    }
-  }
+      return `${months[date.getMonth()]} ${date.getFullYear()}`;
+    },
+  },
 };
 </script>
 <style lang="scss">
