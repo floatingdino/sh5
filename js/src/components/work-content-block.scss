@@ -1,0 +1,34 @@
+@import "scss/master.scss";
+.portfolio-content {
+  &-block {
+    position: relative;
+    margin-bottom: 120px;
+    img {
+      width: 840px;
+      @include breakpoint(sm) {
+        min-height: 750px;
+      }
+    }
+    &-text {
+      position: static;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 50%;
+      display: flex;
+      padding: 10px;
+      align-items: center;
+      text-align: left;
+      @include breakpoint(sm) {
+        position: absolute;
+      }
+    }
+    &[data-alt="true"] {
+      text-align: right;
+      .portfolio-content-block-text {
+        left: 0;
+        right: 50%;
+      }
+    }
+  }
+}

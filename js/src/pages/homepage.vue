@@ -6,7 +6,7 @@
   </div>
 </template>
 <script>
-import blogSidebar from "../components/blog-sidebar";
+import blogSidebar from "components/blog-sidebar";
 
 const PrismicDOM = require("prismic-dom");
 

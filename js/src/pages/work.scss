@@ -1,4 +1,4 @@
-@import "../../../scss/master.scss";
+@import "scss/master.scss";
 .work-wrapper {
   // background-color:white;
   max-width: 100%;
@@ -79,6 +79,7 @@
       flex-wrap: wrap;
       align-items: center;
       text-transform: uppercase;
+
       @include breakpoint(sm) {
         padding: 40px;
         left: 50%;
@@ -87,7 +88,14 @@
         border-bottom: none;
       }
     }
+    &-arrow-wrapper {
+      display: inline-block;
+      transition: margin-left 0.2s ease-out;
+    }
   }
+}
+a:hover .portfolio-header-arrow-wrapper {
+  margin-left: 20px;
 }
 .pink-bg-text {
   background-color: #fab2d7;
@@ -103,6 +111,6 @@
     padding: 5px 10px;
   }
 }
-a.pink-bg-text:hover {
-  background-color: #d1c7f9;
-}
+// a.pink-bg-text:hover {
+//   background-color: #d1c7f9;
+// }

@@ -8,7 +8,7 @@
   </div>
 </template>
 <script>
-import contentBlock from "../components/content-block";
+import contentBlock from "components/content-block";
 
 export default {
   props: {

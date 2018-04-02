@@ -1,8 +1,9 @@
 const webpack = require('webpack');
-const uglify = require('uglifyjs-webpack-plugin');
 const history = require('connect-history-api-fallback');
 const convert = require('koa-connect');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+const path = require('path');
+const weblog = require('webpack-log');
 // const ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 module.exports = {
@@ -11,7 +12,9 @@ module.exports = {
     "bundle": './js/src/index.ts'
   },
   output: {
-    filename: './js/dist/[name].js'
+    filename: './js/dist/[name].js',
+    chunkFilename: './js/dist/[name].bundle.js',
+    // path: path.resolve(__dirname, "js/dist")
   },
   devtool: 'eval',
   module: {
@@ -30,7 +33,8 @@ module.exports = {
                   targets: {
                     browsers: ["last 1 versions"]
                   }
-                }]
+                }],
+                "@babel/preset-stage-0"
               ]
             }
           }
@@ -56,7 +60,11 @@ module.exports = {
     new BundleAnalyzerPlugin(),
   ],
   resolve: {
-    extensions: ['.ts', '.tsx', '.js', '.json', '.vue']
+    extensions: ['.ts', '.tsx', '.js', '.json', '.vue'],
+    alias: {
+      components: path.resolve(__dirname, "js/src/components"),
+      pages: path.resolve(__dirname, "js/src/pages")
+    }
   }
 }
 
@@ -66,14 +74,14 @@ module.exports.serve = {
 
     app.use(convert(history({
       index: "index.html",
-      rewrites: [
-        {
-          from: /hot-update\.json$/,
-          to(context) {
-            return context.parsedUrl.pathname.replace(/.*(\/[^\/]*hot-update\.json)$/, /$&/);
-          }
-        }
-      ]
+      // rewrites: [
+      //   {
+      //     from: /hot-update\.json$/,
+      //     to(context) {
+      //       return context.parsedUrl.pathname.replace(/.*(\/[^\/]*hot-update\.json)$/, /$&/);
+      //     }
+      //   }
+      // ]
     })));
   }
 };

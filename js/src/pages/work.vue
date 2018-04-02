@@ -6,15 +6,21 @@
     <div class="internal-page-wrapper">
       <header class="portfolio-header">
         <picture>
-          <source sizes="100vw" :srcset="page.data.featured_image.mobile.url + ', ' + page.data.featured_image.mobile_retina.url + ' 2x'" media="(max-width:1024px)"/>
-          <source sizes="(min-width:768px) 840px, 100vw" :srcset="page.data.featured_image.url + ', ' +  page.data.featured_image.retina.url + ' 2x'" />
-          <img :src="page.data.featured_image.url" sizes="(min-width:768px) 840px, 100vw" :srcset="page.data.featured_image.url + ', ' + page.data.featured_image.retina.url + ' 2x'" class="portfolio-header-image img-spinner" />
+          <source sizes="100vw" :srcset="page.data.featured_image.mobile.url
+          /* + ', ' + page.data.featured_image.mobile_retina.url + ' 2x' */
+          " media="(max-width:1024px)"/>
+          <source sizes="(min-width:768px) 840px, 100vw" :srcset="page.data.featured_image.url
+          /* + ', ' +  page.data.featured_image.retina.url + ' 2x' */
+          " />
+          <img :src="page.data.featured_image.url" sizes="(min-width:768px) 840px, 100vw" :srcset="page.data.featured_image.url
+          /* + ', ' + page.data.featured_image.retina.url + ' 2x' */
+          " class="portfolio-header-image img-spinner" />
         </picture>
         <div class="portfolio-header-text">
           <div>
             <h1 v-if="page.data.title && page.data.site_link">
-              <a :href="page.data.site_link.url" rel="nofollow noopener" target="_blank" class="pink-bg-text">
-                {{PrismicDOM.RichText.asText(page.data.title)}} →
+              <a :href="page.data.site_link.url" rel="nofollow noopener" target="_blank" title="Check out the live site" class="pink-bg-text">
+                {{PrismicDOM.RichText.asText(page.data.title)}} <span class="portfolio-header-arrow-wrapper">→</span>
               </a>
             </h1>
             <h1 v-if="page.data.title && ! page.data.site_link">
@@ -41,8 +47,16 @@
   </div>
 </template>
 <script>
-import imageGrid from "../components/image-grid";
-import workContentBlock from "../components/work-content-block";
+// import imageGrid from "../components/image-grid";
+// import workContentBlock from "../components/work-content-block";
+// import fullWidthImage from "../components/full-width-image";
+
+const imageGrid = () =>
+  import(/* webpackChunkName: "portfolio-image-grid" */ "components/image-grid");
+const workContentBlock = () =>
+  import(/* webpackChunkName: "portfolio-content-block"  */ "components/work-content-block");
+const fullWidthImage = () =>
+  import(/* webpackChunkName: "portfolio-full-width-image" */ "components/full-width-image");
 
 const PrismicDOM = require("prismic-dom");
 
@@ -53,7 +67,8 @@ export default {
   },
   components: {
     image_grid: imageGrid,
-    content_block: workContentBlock
+    content_block: workContentBlock,
+    big_image: fullWidthImage
   },
   data() {
     return {

@@ -1,8 +1,8 @@
-@import "../../../scss/master";
+@import "scss/master";
 .blog-sidebar {
   float: right;
   width: 35%;
-  padding: 0 30px 60px;
+  padding-bottom: 60px;
   &-item {
     img {
       width: 548px;
@@ -16,7 +16,7 @@
 @supports (display: flex) {
   .blog-sidebar {
     flex: 2 1 350px;
-    padding: 0 30px 60px;
+    float: none;
     @include breakpoint(950) {
       padding-left: 100px;
     }

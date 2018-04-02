@@ -1,6 +1,7 @@
 const webpack = require('webpack');
 const uglify = require('uglifyjs-webpack-plugin');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+const path = require('path');
 
 module.exports = {
   mode: "production",
@@ -8,7 +9,9 @@ module.exports = {
     "bundle": './js/src/index.ts'
   },
   output: {
-    filename: '../js/dist/[name].js'
+    filename: '[name].js',
+    chunkFilename: '[name].bundle.js',
+    path: path.resolve(__dirname, "js/dist")
   },
   module: {
     rules: [

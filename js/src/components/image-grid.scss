@@ -1,27 +1,35 @@
-@import "../../../scss/master";
+@import "scss/master";
 
 .portfolio-image-grid {
   position: relative;
-  margin-bottom: 30px;
-  @include breakpoint(sm) {
-    width: 100%;
-    padding-bottom: 550 / 1290 * 100%;
-  }
-  &-primary {
-    width: 2 / 3 * 100%;
-  }
+  margin-bottom: 120px;
+
   &-primary,
   &-secondary {
-    position: absolute;
     display: block;
+    width: 100%;
+    @include breakpoint(440) {
+      position: absolute;
+    }
   }
   &-secondary {
-    width: 1 / 3 * 100%;
-    right: 0;
-    top: 0;
-    &:last-child {
-      top: auto;
-      bottom: 0;
+    display: none;
+  }
+  @include breakpoint(440) {
+    width: 100%;
+    padding-bottom: 550 / 1290 * 100%;
+    &-primary {
+      width: 2 / 3 * 100%;
+    }
+    &-secondary {
+      width: 1 / 3 * 100%;
+      right: 0;
+      top: 0;
+      display: block;
+      &:last-child {
+        top: auto;
+        bottom: 0;
+      }
     }
   }
 }
