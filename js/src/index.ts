@@ -1,5 +1,6 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
+// import { createRenderer as VSR } from "vue-server-renderer";
 
 import App from "./App";
 import route from "./pages/route";
@@ -21,7 +22,7 @@ router.beforeEach((to, from, next) => {
   window.scrollTo(0, 0);
   next();
 });
-new Vue({
+const app = new Vue({
   el: "#app",
   router,
   render: h => h(App)

@@ -57,6 +57,7 @@
     "vue": "^2.5.16",
     "vue-carousel": "^0.6.9",
     "vue-router": "^3.0.1",
+    "vue-server-renderer": "^2.5.16",
     "whatwg-fetch": "^2.0.3"
   }
 }

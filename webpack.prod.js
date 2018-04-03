@@ -9,9 +9,8 @@ module.exports = {
     "bundle": './js/src/index.ts'
   },
   output: {
-    filename: '[name].js',
-    chunkFilename: '[name].bundle.js',
-    path: path.resolve(__dirname, "js/dist")
+    filename: './js/dist/[name].js',
+    chunkFilename: './js/dist/[name].bundle.js',
   },
   module: {
     rules: [
@@ -38,7 +37,8 @@ module.exports = {
                   targets: {
                     browsers: ["> 3%", "last 2 versions", "IE 10"]
                   }
-                }]
+                }],
+                "@babel/preset-stage-0"
               ]
             }
           }
@@ -66,6 +66,10 @@ module.exports = {
     })
   ],
   resolve: {
-    extensions: ['.ts', '.tsx', '.js', '.json', '.vue']
+    extensions: ['.ts', '.tsx', '.js', '.json', '.vue'],
+    alias: {
+      components: path.resolve(__dirname, "js/src/components"),
+      pages: path.resolve(__dirname, "js/src/pages")
+    }
   }
 }
