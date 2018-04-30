@@ -33,8 +33,7 @@ module.exports = {
                   targets: {
                     browsers: ["last 1 versions"]
                   }
-                }],
-                "@babel/preset-stage-0"
+                }]
               ]
             }
           }

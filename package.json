@@ -5,7 +5,7 @@
   "main": "js/index.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack-serve --history-api-fallback --open --config webpack.config.js",
+    "start": "webpack-serve --open --config webpack.config.js",
     "build": "webpack --config webpack.prod.js"
   },
   "repository": {
@@ -52,7 +52,7 @@
   },
   "dependencies": {
     "autotrack": "^2.4.1",
-    "prismic-dom": "^2.0.6",
+    "prismic-dom": "^2.1.0",
     "prismic-javascript": "^1.5.0-beta.2",
     "vue": "^2.5.16",
     "vue-carousel": "^0.6.9",

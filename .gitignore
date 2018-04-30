@@ -3,3 +3,4 @@ js/dist
 css/*
 report.html
 dist
+npm-debug.log

@@ -20,6 +20,7 @@
 </template>
 <script>
 const PrismicDOM = require("prismic-dom");
+const Elements = PrismicDOM.RichText.Elements;
 
 export default {
   props: {
@@ -32,9 +33,9 @@ export default {
     };
   },
   methods: {
-    pinkWrap(element, content) {
-      if (element.type === "paragraph") {
-        return `<p><span class="pink-bg-text">${content}</span></p>`;
+    pinkWrap(type, element, content, children) {
+      if (type === Elements.paragraph) {
+        return `<p><span class="pink-bg-text">${children.join('')}</span></p>`;
       }
 
       return null;
