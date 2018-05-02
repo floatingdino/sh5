@@ -9,10 +9,10 @@ module.exports = {
     "bundle": './js/src/index.ts'
   },
   output: {
-    filename: './[name].js',
-    chunkFilename: './[name].bundle.js',
+    filename: '[name].js',
+    chunkFilename: '[name].bundle.js',
     path: path.resolve(__dirname, "js/dist"),
-    publicPath: path.resolve(__dirname, "js/dist"),
+    publicPath: "js/dist/",
   },
   module: {
     rules: [
