@@ -1,31 +1,28 @@
 <template>
   <div class='wrapper narrow-wrapper'>
-    <h1 v-if='page.title'>{{page.title}}</h1>
+    <h1 v-if='page.data.title'>{{page.data.title}}</h1>
     <main class='wrapper-content'>
-      <content-block v-if='page.sections' v-for='(content, index) in page.sections' :key='index' :content='content'></content-block>
+      <div v-html="PrismicDOM.RichText.asHTML(page.data.body)" />
       <router-link class='btn' to='/'>Take me home</router-link>
     </main>
   </div>
 </template>
 <script>
-import contentBlock from "components/content-block";
+// import contentBlock from "components/content-block";
+
+const PrismicDOM = require("prismic-dom");
 
 export default {
   props: {
     cta: Object,
     page: Object,
-    api: Object,
+    api: Object
   },
   data() {
     return {
-      title: "",
-      loaded: false,
-      sections: [],
+      PrismicDOM
     };
-  },
-  components: {
-    contentBlock,
-  },
+  }
 };
 </script>
 <style lang="scss">
