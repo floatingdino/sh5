@@ -16,19 +16,19 @@ const site = new Koa();
 // VIEWS
 
 const routes = [
-  { path: "*", component: route, meta: { title: "Sam Haakman" } },
+  { path: "*", component: route, meta: { title: "Sam Haakman" } }
 ];
 
 const renderer = VSR({
-  template: fs.readFileSync("../../template.html", "utf-8"),
+  template: fs.readFileSync("../../template.html", "utf-8")
 });
 
 site.use(history());
 
-site.use(async (ctx) => {
+site.use(async ctx => {
   const router = new VueRouter({
     mode: "history",
-    routes,
+    routes
   });
   router.beforeEach((to, from, next) => {
     document.title = to.meta.title;
@@ -39,12 +39,12 @@ site.use(async (ctx) => {
   const app = new Vue({
     el: "#app",
     router,
-    render: h => h(App),
+    render: h => h(App)
   });
   ctx.body = renderer
     .renderToString(app)
     .then(html => html)
-    .catch((err) => {
+    .catch(err => {
       console.error(err);
     });
 });

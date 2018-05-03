@@ -5,8 +5,9 @@
   </transition>
 </template>
 <script>
-const homePage = () => import(/* webpackChunkName: "homepage" */ "./homepage");
-const page = () => import(/* webpackChunkName: "page" */ "./page");
+const homePage = () =>
+  import(/* webpackChunkName: "homepage" */ "pages/homepage");
+const page = () => import(/* webpackChunkName: "page" */ "pages/page");
 const workPage = () => import(/*webpackChunkName: "portfolio" */ "pages/work");
 
 const Prismic = require("prismic-javascript");
