@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack-serve --open --config webpack.config.js",
-    "build": "webpack --config webpack.prod.js"
+    "build": "webpack --config webpack.prod.js",
+    "serve": "node js/src/serve.js"
   },
   "repository": {
     "type": "git",
@@ -26,7 +27,6 @@
     "@babel/preset-stage-0": "^7.0.0-beta.42",
     "@babel/preset-typescript": "^7.0.0-beta.42",
     "babel-loader": "^8.0.0-beta.2",
-    "connect-history-api-fallback": "^1.5.0",
     "css-loader": "^0.28.11",
     "eslint": "^4.19.1",
     "eslint-config-airbnb": "^16.1.0",
@@ -52,6 +52,8 @@
   },
   "dependencies": {
     "autotrack": "^2.4.1",
+    "connect-history-api-fallback": "^1.5.0",
+    "koa": "^2.5.1",
     "prismic-dom": "^2.1.0",
     "prismic-javascript": "^1.5.0-beta.2",
     "vue": "^2.5.16",
