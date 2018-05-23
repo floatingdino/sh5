@@ -97,11 +97,11 @@
 a:hover .portfolio-header-arrow-wrapper {
   margin-left: 20px;
 }
-.pink-bg-text {
-  background-color: #fab2d7;
-  color: white;
+.wrapped-text {
+  background-color: white;
+  color: black;
   padding: 5px 0;
-  box-shadow: 10px 0 0 #fab2d7, -10px 0 0 #fab2d7;
+  box-shadow: 10px 0 0 white, -10px 0 0 white;
   margin-left: -10px;
   transition: background-color 0.2s;
   @supports (-webkit-box-decoration-break: clone) {

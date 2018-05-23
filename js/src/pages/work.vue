@@ -19,21 +19,21 @@
         <div class="portfolio-header-text">
           <div>
             <h1 v-if="page.data.title && page.data.site_link">
-              <a :href="page.data.site_link.url" rel="nofollow noopener" target="_blank" title="Check out the live site" class="pink-bg-text">
+              <a :href="page.data.site_link.url" rel="nofollow noopener" target="_blank" title="Check out the live site" class="wrapped-text">
                 {{PrismicDOM.RichText.asText(page.data.title)}} <span class="portfolio-header-arrow-wrapper">→</span>
               </a>
             </h1>
             <h1 v-if="page.data.title && ! page.data.site_link">
-              <span class="pink-bg-text">{{PrismicDOM.RichText.asText(page.data.title)}}</span>
+              <span class="wrapped-text">{{PrismicDOM.RichText.asText(page.data.title)}}</span>
             </h1>
             <p class="portfolio-header-text-details" v-if="page.data.studio || page.data.project_date" title="Studio and Project Date">
-              <span class="pink-bg-text">
+              <span class="wrapped-text">
                 {{PrismicDOM.RichText.asText(page.data.studio)}}
                 <span v-if="page.data.studio && page.data.project_date">▴</span>
                 <time>{{project_date}}</time>
               </span>
             </p>
-            <p class="portfolio-header-text-details" v-if="page.data.excerpt"><span class="pink-bg-text" v-html="PrismicDOM.RichText.asText(page.data.excerpt)" /></p>
+            <p class="portfolio-header-text-details" v-if="page.data.excerpt"><span class="wrapped-text" v-html="PrismicDOM.RichText.asText(page.data.excerpt)" /></p>
           </div>
         </div>
       </header>
