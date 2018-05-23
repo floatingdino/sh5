@@ -10,6 +10,8 @@ $breakpoints: (
   "lg":(min-width:$lg)
 );
 
+$gutter: 80px;
+
 @mixin breakpoint($width) {
   // FOUNDATION STYLE BREAKPOINT MIXIN BY SAM
   // INPUT BOOTSTRAP OR FOUNDATION NAMED BREAKPOINT OR NUMBER FOR PIXEL VALUE MIN WIDTH

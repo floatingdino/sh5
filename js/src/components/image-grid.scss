@@ -1,35 +1,64 @@
 @import "scss/master";
-
+$gutter: 20px;
 .portfolio-image-grid {
   position: relative;
-  margin-bottom: 120px;
+  margin-bottom: 120px - $gutter;
+
+  &-primary {
+    width: 100%;
+    position: absolute;
+    opacity: 0;
+    transition: opacity 0.3s;
+    &.loaded {
+      opacity: 1;
+    }
+  }
 
   &-primary,
   &-secondary {
     display: block;
-    width: 100%;
-    @include breakpoint(440) {
-      position: absolute;
+    // @include breakpoint(440) {
+    //   position: absolute;
+    // }
+  }
+
+  &-image-wrapper {
+    padding-bottom: 563 / 880 * 100%;
+    position: relative;
+  }
+
+  &-secondary {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    margin: 0 $gutter/4;
+    margin-bottom: $gutter;
+    cursor: pointer;
+    opacity: 0.7;
+    &:hover {
+      opacity: 0.9;
+    }
+    &.selected {
+      border: 5px solid white;
+      width: 130px;
+      height: 130px;
+      opacity: 1;
     }
   }
-  &-secondary {
-    display: none;
+
+  &-thumbs {
+    display: flex;
+    flex-flow: row wrap;
+    margin-left: -$gutter / 4;
+    margin-right: -$gutter / 4;
+
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 40px;
   }
+
   @include breakpoint(440) {
     width: 100%;
-    padding-bottom: 550 / 1290 * 100%;
-    &-primary {
-      width: 2 / 3 * 100%;
-    }
-    &-secondary {
-      width: 1 / 3 * 100%;
-      right: 0;
-      top: 0;
-      display: block;
-      &:last-child {
-        top: auto;
-        bottom: 0;
-      }
-    }
+    // padding-bottom: 550 / 1290 * 100%;
   }
 }

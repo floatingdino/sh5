@@ -39,7 +39,7 @@
       </header>
       <div class="wrapper work-wrapper">
         <main class="wrapper-content">
-          <component v-for="(slice, index) in page.data.body1" :is="slice.slice_type" :key="index" :index="index" :data="slice.primary" />
+          <component v-for="(slice, index) in page.data.body1" :is="slice.slice_type" :key="index" :index="index" :data="slice.slice_type == 'image_grid' ? slice.items : slice.primary" />
           <router-link role="button" class="btn" to="/">Go home</router-link>
         </main>
       </div>

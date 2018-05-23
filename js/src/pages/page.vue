@@ -1,6 +1,6 @@
 <template>
   <div class='wrapper narrow-wrapper'>
-    <h1 v-if='page.data.page_title'>{{page.data.page_title[0].text}}</h1>
+    <h1 v-if='page.data.page_title'>{{PrismicDOM.RichText.asText(page.data.page_title)}}</h1>
     <main class='wrapper-content'>
       <div v-html="PrismicDOM.RichText.asHtml(page.data.body)" />
       <router-link class='btn' to='/'>Take me home</router-link>
