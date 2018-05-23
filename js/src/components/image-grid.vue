@@ -5,8 +5,6 @@
   </div>
   <div class="portfolio-image-grid-thumbs">
     <img v-for="(item, index) in data" :class='{"selected": index === 0, "portfolio-image-grid-secondary": true, "img-spinner": true}' :src="item.image.thumb.url" :data-img="index" v-on:click="select" />
-    <!-- <img class="portfolio-image-grid-secondary" :src="data.grid_2.url" data-img="grid_2" v-on:click="select" />
-    <img class="portfolio-image-grid-secondary" :src="data.grid_3.url" data-img="grid_3" v-on:click="select" /> -->
   </div>
 
 </section>
