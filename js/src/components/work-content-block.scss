@@ -5,9 +5,9 @@
     margin-bottom: 120px;
     img {
       width: 840px;
-      @include breakpoint(sm) {
-        min-height: 750px;
-      }
+      // @include breakpoint(sm) {
+      //   min-height: 750px;
+      // }
     }
     &-text {
       position: static;
