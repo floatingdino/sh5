@@ -4,9 +4,9 @@ const path = require("path");
 const VueSSRServerPlugin = require('vue-server-renderer/server-plugin');
 
 module.exports = {
-  mode: "production",
   devtool: "sourcemap",
   target: "node",
+  mode: "development",
   entry: {
     bundle: "./js/src/entry-server.js",
   },
@@ -15,7 +15,8 @@ module.exports = {
     chunkFilename: "[name].bundle.js",
     path: path.resolve(__dirname, "js/serve"),
     publicPath: "js/serve/",
-    libraryTarget: "commonjs2"
+    libraryTarget: "commonjs2",
+    libraryExport: "default"
   },
   module: {
     rules: [
@@ -28,33 +29,33 @@ module.exports = {
           },
         },
       },
-      // {
-      //   test: /(.js|.ts)$/,
-      //   exclude: /node_modules/,
-      //   use: [
-      //     {
-      //       loader: "babel-loader",
-      //       options: {
-      //         cacheDirectory: true,
-      //         presets: [
-      //           [
-      //             "@babel/preset-env",
-      //             {
-      //               targets: {
-      //                 browsers: ["> 3%", "last 2 versions", "IE 10"],
-      //               },
-      //             },
-      //           ],
-      //           "@babel/preset-stage-0",
-      //         ],
-      //       },
-      //     },
-      //   ],
-      // },
       {
-        test: /scss$/,
-        use: ["style-loader", "css-loader", "sass-loader"],
+        test: /(.js|.ts)$/,
+        exclude: /node_modules/,
+        use: [
+          {
+            loader: "babel-loader",
+            options: {
+              cacheDirectory: true,
+              presets: [
+                [
+                  "@babel/preset-env",
+                  {
+                    targets: {
+                      node: "current"
+                    },
+                  },
+                ],
+                "@babel/preset-stage-0",
+              ],
+            },
+          },
+        ],
       },
+      // {
+      //   test: /scss$/,
+      //   use: ["style-loader", "css-loader", "sass-loader"],
+      // },
     ],
   },
   plugins: [

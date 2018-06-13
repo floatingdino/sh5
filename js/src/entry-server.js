@@ -1,9 +1,10 @@
 import createApp from "./app";
+// import Vue from "vue";
 
 export default context =>
   new Promise((resolve, reject) => {
+    // console.log(context);
     const { app, router } = createApp();
-
     router.push(context.url);
 
     router.onReady(() => {

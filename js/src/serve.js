@@ -1,5 +1,9 @@
-const Server = require("fastify")();
-const createApp = require("../serve/bundle.js");
+const Server = require("fastify")({
+  logger: {
+    prettyPrint: true,
+  },
+});
+// const App = require("../serve/bundle.js");
 // const history = require("connect-history-api-fallback");
 
 // const Vue = require("vue");
@@ -12,31 +16,37 @@ const { createBundleRenderer } = require("vue-server-renderer");
 const fs = require("fs");
 //
 // Vue.use(VueRouter);
+const renderer = createBundleRenderer("/websites/sh5/js/serve/vue-ssr-server-bundle.json", {
+  runInNewContext: false,
+  template: fs.readFileSync("./index.template.html", "utf-8"),
+});
 
-const renderer = createBundleRenderer("../serve/vue-ssr-server-bundle.json", {
-  template: fs.readFileSync("./index.template.html"),
+Server.get("/js/dist/bundle.js", async (req, res) => {
+  res.type("application/js").send(fs.readFileSync("./js/dist/bundle.js"));
 });
 
 Server.get("*", async (req, res) => {
-  const context = { url: req.url };
-  createApp(context).then((app) => {
-    renderer.renderToString(app, (err, html) => {
-      if (err) {
-        if (err.code === 404) {
-          res.status(404).end("Page not found");
-        } else {
-          res.status(500).end("Internal Server Error");
-        }
-      } else {
-        res.send(html);
-      }
-    });
+  const context = { url: req.raw.url };
+  // console.log("pre", req.raw.url, req);
+  renderer.renderToString(context, (err, html) => {
+    // console.log("renderer", context);
+    if (err) {
+      console.log(err);
+      res.send(err);
+      // if (err.code === 404) {
+      //   res.status(404).end("Page not found");
+      // } else {
+      //   res.status(500).end("Internal Server Error");
+      // }
+    } else {
+      res.type("text/html").send(html);
+    }
   });
-  // reply.send({ aaa: "aaaaa" });
 });
 
 const start = async () => {
   try {
+    console.log("Server Launching");
     await Server.listen(8082);
   } catch (err) {
     Server.log.error(err);
