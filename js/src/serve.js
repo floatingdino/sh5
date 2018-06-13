@@ -1,52 +1,46 @@
-const Koa = require("koa");
-const history = require("connect-history-api-fallback");
+const Server = require("fastify")();
+const createApp = require("../serve/bundle.js");
+// const history = require("connect-history-api-fallback");
 
-const Vue = require("vue");
-const VueRouter = require("vue-router");
-const VSR = require("vue-server-renderer").createRenderer;
-
-const App = require("./App.vue");
-const route = require("./pages/route.vue");
-
+// const Vue = require("vue");
+// const VueRouter = require("vue-router");
+const { createBundleRenderer } = require("vue-server-renderer");
+//
+// const App = require("./App.vue");
+// const route = require("./pages/route.vue");
+//
 const fs = require("fs");
+//
+// Vue.use(VueRouter);
 
-Vue.use(VueRouter);
-const site = new Koa();
-
-// VIEWS
-
-const routes = [
-  { path: "*", component: route, meta: { title: "Sam Haakman" } }
-];
-
-const renderer = VSR({
-  template: fs.readFileSync("../../template.html", "utf-8")
+const renderer = createBundleRenderer("../serve/vue-ssr-server-bundle.json", {
+  template: fs.readFileSync("./index.template.html"),
 });
 
-site.use(history());
-
-site.use(async ctx => {
-  const router = new VueRouter({
-    mode: "history",
-    routes
-  });
-  router.beforeEach((to, from, next) => {
-    document.title = to.meta.title;
-    window.scrollTo(0, 0);
-    next();
-  });
-
-  const app = new Vue({
-    el: "#app",
-    router,
-    render: h => h(App)
-  });
-  ctx.body = renderer
-    .renderToString(app)
-    .then(html => html)
-    .catch(err => {
-      console.error(err);
+Server.get("*", async (req, res) => {
+  const context = { url: req.url };
+  createApp(context).then((app) => {
+    renderer.renderToString(app, (err, html) => {
+      if (err) {
+        if (err.code === 404) {
+          res.status(404).end("Page not found");
+        } else {
+          res.status(500).end("Internal Server Error");
+        }
+      } else {
+        res.send(html);
+      }
     });
+  });
+  // reply.send({ aaa: "aaaaa" });
 });
 
-site.listen(8082);
+const start = async () => {
+  try {
+    await Server.listen(8082);
+  } catch (err) {
+    Server.log.error(err);
+    process.exit(1);
+  }
+};
+start();

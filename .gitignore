@@ -1,5 +1,6 @@
 node_modules/*
 js/dist
+js/serve
 css/*
 report.html
 dist

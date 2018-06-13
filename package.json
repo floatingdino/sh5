@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack-serve --open --config webpack.config.js",
-    "build": "webpack --config webpack.prod.js",
+    "build": "webpack --config webpack.prod.js && webpack --config webpack.server.js",
+    "buildServe": "webpack --config webpack.server.js",
     "serve": "node js/src/serve.js"
   },
   "repository": {
@@ -52,8 +53,7 @@
   },
   "dependencies": {
     "autotrack": "^2.4.1",
-    "connect-history-api-fallback": "^1.5.0",
-    "koa": "^2.5.1",
+    "fastify": "^1.6.0",
     "prismic-dom": "^2.1.0",
     "prismic-javascript": "^1.5.0-beta.2",
     "vue": "^2.5.16",
