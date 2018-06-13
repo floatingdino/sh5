@@ -1,6 +1,6 @@
 import createApp from "./app";
 // import Vue from "vue";
-
+// TODO: Pre-render data from Prismic
 export default context =>
   new Promise((resolve, reject) => {
     // console.log(context);
