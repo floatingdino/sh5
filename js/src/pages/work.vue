@@ -33,7 +33,7 @@
                 <time>{{project_date}}</time>
               </span>
             </p>
-            <p class="portfolio-header-text-details" v-if="page.data.excerpt"><span class="wrapped-text" v-html="PrismicDOM.RichText.asText(page.data.excerpt)" /></p>
+            <p v-if="page.data.excerpt"><span class="wrapped-text" v-html="PrismicDOM.RichText.asText(page.data.excerpt)" /></p>
           </div>
         </div>
       </header>
@@ -63,16 +63,16 @@ const PrismicDOM = require("prismic-dom");
 export default {
   props: {
     page: Object,
-    api: Object
+    api: Object,
   },
   components: {
     image_grid: imageGrid,
     content_block: workContentBlock,
-    big_image: fullWidthImage
+    big_image: fullWidthImage,
   },
   data() {
     return {
-      PrismicDOM
+      PrismicDOM,
     };
   },
   computed: {
@@ -89,13 +89,13 @@ export default {
         "September",
         "October",
         "November",
-        "December"
+        "December",
       ];
       const date = new Date(this.page.data.project_date);
 
       return `${months[date.getMonth()]} ${date.getFullYear()}`;
-    }
-  }
+    },
+  },
 };
 </script>
 <style lang="scss">

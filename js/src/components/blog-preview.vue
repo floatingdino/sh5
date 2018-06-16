@@ -12,12 +12,12 @@ export default {
   props: {
     data: Object,
     slugs: Array,
-    id: String
+    id: String,
   },
   data() {
     return {
       loaded: this.loaded,
-      PrismicDOM
+      PrismicDOM,
     };
   },
   created() {
@@ -26,14 +26,14 @@ export default {
   methods: {
     load() {
       this.loaded = true;
-    }
+    },
   },
   computed: {
     srcset() {
       return `${this.data.data.preview_image.url} 400w, ${
         this.data.data.preview_image.retina.url
       } 600w`;
-    }
-  }
+    },
+  },
 };
 </script>
