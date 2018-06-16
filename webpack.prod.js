@@ -37,7 +37,7 @@ module.exports = {
                 "@babel/preset-typescript",
                 ["@babel/preset-env", {
                   targets: {
-                    browsers: ["> 3%", "last 2 versions", "IE 10"]
+                    browsers: ["> 2%"]
                   }
                 }],
                 "@babel/preset-stage-0"

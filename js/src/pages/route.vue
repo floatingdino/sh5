@@ -5,6 +5,7 @@
   </transition>
 </template>
 <script>
+import { getType, getDataPath } from "./routeHelpers";
 const homePage = () => import(/* webpackChunkName: "homepage" */ "pages/homepage");
 const page = () => import(/* webpackChunkName: "page" */ "pages/page");
 const workPage = () => import(/*webpackChunkName: "portfolio" */ "pages/work");
@@ -25,37 +26,34 @@ export default {
   },
   components: {
     homepage: homePage,
-    page,
+    // page,
     portfo: workPage,
   },
   data() {
     return {
-      template: "",
+      // template: "",
       loading: true,
       slug: this.$route.path.slice(1),
-      page: {},
+      // page: {},
       api: null,
     };
   },
   computed: {
     dataPath() {
-      switch (this.$route.path) {
-        case "/":
-          return "home";
-        default:
-          return this.$route.path.match(/\/([^/]*)$/)[1]; // slug of final page in route
-      }
+      return getDataPath(this.$route.path);
     },
     type() {
-      switch (this.$route.path.match(/^\/([^/]*)/)[1]) { // first part of the path
-        case "":
-          return "homepage";
-        case "portfolio":
-          return "portfo";
-        default:
-          return "page";
-      }
+      return getType(this.$route.path);
     },
+    page() {
+      return this.$store.state.pages[getDataPath(this.$route.path)];
+    },
+    template() {
+      return this.$store.state.pages[getDataPath(this.$route.path)].type;
+    },
+  },
+  asyncData({ store, route }) {
+    return store.dispatch("fetchPage", { path: route.path });
   },
   methods: {
     updatePageData() {
@@ -91,13 +89,18 @@ export default {
     },
   },
   created() {
-    Prismic.getApi(apiEndpoint)
-      .then(api => {
-        this.api = api;
-      })
-      .then(() => {
-        this.updatePageData();
-      });
+    console.log(this.dataPath);
+    this.$store.dispatch("fetchPage", this.$route.path).then(() => {
+      this.loading = false;
+      console.log(this.page);
+    });
+    // Prismic.getApi(apiEndpoint)
+    //   .then(api => {
+    //     this.api = api;
+    //   })
+    //   .then(() => {
+    //     this.updatePageData();
+    //   });
   },
 };
 </script>
