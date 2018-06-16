@@ -16,21 +16,19 @@ export default {
     console.log(this.data);
   },
   props: {
-    data: Array
+    data: Array,
   },
   data() {
     return {
-      selectedImg: 0
+      selectedImg: 0,
     };
   },
   methods: {
     select(e) {
       const el = e.target;
       const img = el.getAttribute("data-img");
-      const primary = document.querySelector(".portfolio-image-grid-primary");
-      const oldImg = document.querySelector(
-        `img[data-img="${this.selectedImg}"]`
-      );
+      const primary = this.$el.querySelector(".portfolio-image-grid-primary");
+      const oldImg = this.$el.querySelector(`img[data-img="${this.selectedImg}"]`);
 
       console.log(img);
 
@@ -45,8 +43,8 @@ export default {
     },
     loadImg(e) {
       e.target.classList.add("loaded");
-    }
-  }
+    },
+  },
 };
 </script>
 <style lang="scss">

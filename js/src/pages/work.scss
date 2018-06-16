@@ -17,17 +17,17 @@
     margin-bottom: 1em;
   }
 }
-.VueCarousel {
-  &-slide {
-    height: 600px;
-    overflow: auto;
-  }
-
-  &-pagination {
-    position: absolute;
-    bottom: 0;
-  }
-}
+// .VueCarousel {
+//   &-slide {
+//     height: 600px;
+//     overflow: auto;
+//   }
+//
+//   &-pagination {
+//     position: absolute;
+//     bottom: 0;
+//   }
+// }
 .header-wrapper {
   width: 1400px;
   max-width: 100%;
@@ -78,8 +78,9 @@
       display: flex;
       flex-wrap: wrap;
       align-items: center;
-      text-transform: uppercase;
-
+      &-details {
+        text-transform: uppercase;
+      }
       @include breakpoint(sm) {
         padding: 40px;
         left: 50%;
@@ -104,7 +105,7 @@ a:hover .portfolio-header-arrow-wrapper {
   box-shadow: 10px 0 0 white, -10px 0 0 white;
   margin-left: -10px;
   transition: background-color 0.2s;
-  @supports (-webkit-box-decoration-break: clone) {
+  @supports (-webkit-box-decoration-break: clone) or (box-decoration-break: clone) {
     box-shadow: none;
     box-decoration-break: clone;
     -webkit-box-decoration-break: clone;

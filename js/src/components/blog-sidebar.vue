@@ -6,7 +6,7 @@
     <h2>Other cool sites I've built</h2>
     <ul class='inline'>
       <li v-for='(blog, index) in response.results.slice(2)' :key='index'>
-        <a :href='blog.url' target='_blank' rel='nofollow noopener'>{{blog.title}}</a>
+        <router-link :to='`portfolio/${blog.uid}`'>{{PrismicDOM.RichText.asText(blog.data.title)}}</router-link>
       </li>
     </ul>
     </span>
@@ -17,29 +17,30 @@
 import blogPreview from "./blog-preview";
 
 const Prismic = require("prismic-javascript");
-
+const PrismicDOM = require("prismic-dom");
 export default {
   props: {
     title: String,
     numberPreviews: {
       type: Number,
-      default: 2
+      default: 2,
     },
-    api: Object
+    api: Object,
   },
   data() {
     return {
       // Defaults to empty and then fetches data in created
       loaded: false,
       response: {
-        results: []
-      }
+        results: [],
+      },
+      PrismicDOM,
     };
   },
   created() {
     this.api
       .query(Prismic.Predicates.at("document.type", "portfo"), {
-        orderings: "[my.portfo.date desc]"
+        orderings: "[my.portfo.project_date desc]",
       })
       .then(response => {
         Object.assign(this.response, response);
@@ -47,8 +48,8 @@ export default {
       });
   },
   components: {
-    blogPreview
-  }
+    blogPreview,
+  },
 };
 </script>
 <style lang="scss">
