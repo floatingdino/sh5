@@ -1,5 +1,4 @@
 export function getType(path) {
-  console.log(path);
   switch (path.match(/^\/([^/]*)/)[1]) { // first part of the path
     case "":
       return "homepage";

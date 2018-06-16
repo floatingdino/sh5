@@ -21,21 +21,20 @@ export default {
   },
   watch: {
     $route() {
-      this.updatePageData();
+      // this.updatePageData();
     },
   },
   components: {
     homepage: homePage,
-    // page,
+    page,
     portfo: workPage,
   },
   data() {
     return {
-      // template: "",
-      loading: true,
       slug: this.$route.path.slice(1),
-      // page: {},
       api: null,
+      routeLoading: true,
+      // loading: false || !this.page,
     };
   },
   computed: {
@@ -51,49 +50,20 @@ export default {
     template() {
       return this.$store.state.pages[getDataPath(this.$route.path)].type;
     },
-  },
-  asyncData({ store, route }) {
-    return store.dispatch("fetchPage", { path: route.path });
-  },
-  methods: {
-    updatePageData() {
-      this.page = {};
-      this.loading = true;
-      this.api
-        .getByUID(this.type, this.dataPath)
-        .then(response => {
-          Object.assign(this.page, response);
-          this.template = response.type;
-          this.slug = this.$route.path;
-          this.loading = false;
-        })
-        .catch(error => {
-          console.warn("Something went wrong with navigation", error, this);
-          this.loading = false;
-          this.slug = this.$route.path;
-          this.template = page;
-          Object.assign(this.page, {
-            title: 404,
-            template: "page",
-            sections: [
-              {
-                content:
-                  "Oh. a 404. You know what this means, right?<br>You've gone somewhere you shouldn't have. I've had a few revisions on this site, so maybe you followed an old link here.",
-              },
-              {
-                content: "Anyway, there's nothing here. You should go back to the homepage.",
-              },
-            ],
-          });
-        });
+    loading() {
+      console.log(!this.routeLoading, !this.page, this.$route);
+      return !this.page && !this.routeLoading; // FIXME
     },
   },
+  asyncData({ store, route }) {
+    return store.dispatch("fetchPage", route.path);
+  },
   created() {
-    console.log(this.dataPath);
-    this.$store.dispatch("fetchPage", this.$route.path).then(() => {
-      this.loading = false;
-      console.log(this.page);
-    });
+    // console.log(this.dataPath);
+    // this.$store.dispatch("fetchPage", this.$route.path).then(() => {
+    //   this.loading = false;
+    //   console.log(this.page);
+    // });
     // Prismic.getApi(apiEndpoint)
     //   .then(api => {
     //     this.api = api;
